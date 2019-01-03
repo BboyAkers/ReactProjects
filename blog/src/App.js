@@ -8,12 +8,14 @@ class App extends Component {
   render() {
     return (
         <div className="ui container comments">
-          <CommentDetail
-            imageSource={faker.image.avatar()}
-            author="DeWitt Akers" 
-            postTime="Today at 12:00pm"
-            post="Bacon ipsum dolor amet prosciutto sausage short loin" 
-          />
+          <ApprovalCard>
+            <CommentDetail
+              imageSource={faker.image.avatar()}
+              author="Austin Akers" 
+              postTime="Today at 12:00pm"
+              post="Bacon ipsum dolor amet prosciutto sausage short loin" 
+            />
+          </ApprovalCard>
           <CommentDetail
             imageSource={faker.image.avatar()}
             author="DeWitt Akers" 
@@ -26,7 +28,7 @@ class App extends Component {
             postTime="Today at 12:18pm"
             post="Bacon venison tri-tip drumstick alcatra ball tip shoulder sausage biltong" 
           />
-          <ApprovalCard />
+          
         </div>
     );
   }
