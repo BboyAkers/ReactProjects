@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import faker from 'faker';
+import CommentDetail from './components/CommentDetail';
+import ApprovalCard from './components/ApprovalCard';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div className="ui container comments">
+          <CommentDetail
+            imageSource={faker.image.avatar()}
+            author="DeWitt Akers" 
+            postTime="Today at 12:00pm"
+            post="Bacon ipsum dolor amet prosciutto sausage short loin" 
+          />
+          <CommentDetail
+            imageSource={faker.image.avatar()}
+            author="DeWitt Akers" 
+            postTime="Today at 12:03pm"
+            post="bresaola frankfurter ham hock filet mignon" 
+          />
+          <CommentDetail
+            imageSource={faker.image.avatar()}
+            author="Alex Akers" 
+            postTime="Today at 12:18pm"
+            post="Bacon venison tri-tip drumstick alcatra ball tip shoulder sausage biltong" 
+          />
+          <ApprovalCard />
+        </div>
     );
   }
 }
