@@ -4,7 +4,7 @@ class Details extends Component {
   constructor(props) {
     super(props);
 
-    state = {
+    this.state = {
       loading: true
     };
   }
@@ -22,11 +22,11 @@ class Details extends Component {
     })
   }
     render () {
-      if(state.loading) {
+      if(this.state.loading) {
         return <h1>loading....</h1>
       }
 
-      const { animal, breed, location, description, name} = state;
+      const { animal, breed, location, description, name} = this.state;
 
       return (
         <div className="details">
