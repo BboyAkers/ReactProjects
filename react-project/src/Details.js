@@ -8,6 +8,14 @@ class Details extends Component {
       loading: true
     };
   }
+      static getDerivedStateFromProps({ media }) {
+        let photos = ['http://placecorgi.com/600/600'];
+        if(media.length) {
+          photos = media.map(({ large}) => large);
+        }
+
+        return { photos }
+      }
   componentDidMount() {
     pet.animals(this.props.id).then(({ animal}) => {
       this.setState({
