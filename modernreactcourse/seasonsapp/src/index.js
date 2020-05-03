@@ -33,7 +33,7 @@ class App extends Component {
         </div>
       )
     }
-    return <Spinner />
+    return <Spinner message="Please accept location request" />
   }
 }
 
