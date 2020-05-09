@@ -1,59 +1,53 @@
-import React, { Component } from 'react';
-import pet from '@frontendmasters/pet';
-class Details extends Component {
-  constructor(props) {
-    super(props);
+import React from "react";
+import pet from "@frontendmasters/pet";
+import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
-    this.state = {
-      loading: true
-    };
-  }
-      static getDerivedStateFromProps({ media }) {
-        let photos = ['http://placecorgi.com/600/600'];
-        if(media.length) {
-          photos = media.map(({ large}) => large);
-        }
-
-        return { photos }
-      }
+class Details extends React.Component {
+  state = { loading: true };
   componentDidMount() {
-    pet.animals(this.props.id).then(({ animal}) => {
-      this.setState({
-        name: animal.name,
-        animal: animal.type,
-        location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
-        description: animal.description,
-        media: animal.photos,
-        breed: animal.breeds.primary,
-        loading: false
+    pet
+      .animal(this.props.id)
+      .then(({ animal }) => {
+        this.setState({
+          name: animal.name,
+          animal: animal.type,
+          location: `${animal.contact.address.city}, ${
+            animal.contact.address.state
+          }`,
+          description: animal.description,
+          media: animal.photos,
+          breed: animal.breeds.primary,
+          loading: false
+        });
       })
-    })
+      .catch(err => this.setState({ error: err }));
   }
-    render () {
-      if(this.state.loading) {
-        return <h1>loading....</h1>
-      }
-
-      const { animal, breed, location, description, name} = this.state;
-
-      return (
-        <div className="details">
-          <div>
-            <h2>{name}</h2>
-            <h2>{`${animal} - ${breed} - ${location}`}</h2>
-            <button>Adopt {name}</button>
-            <p>{description}</p>
-          </div>
-        </div>
-      )
+  render() {
+    if (this.state.loading) {
+      return <h1>loading … </h1>;
     }
-}
-// const Details = props => {
-//     return (
-//         <pre>
-//             <code>{JSON.stringify(props, null, 4)}</code>
-//         </pre>
-//     )
-// }
 
-export default Details;
+    const { animal, breed, location, description, media, name } = this.state;
+
+    return (
+      <div className="details">
+        <Carousel media={media} />
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} — ${breed} — ${location}`}</h2>
+          <button>Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default function DetailsWithErrorBoundary(props){
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  )
+};
