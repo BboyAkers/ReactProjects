@@ -1765,6 +1765,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@snyk/protect@^1.716.0":
+  version "1.716.0"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.716.0.tgz#ea92a7a2eacf52aab5a274401a7abd9261707017"
+  integrity sha512-viNhoGwJQPwhqZjjzyScYHysGeLPk4k2HZgMjChR5W49z+GNd+9y3EOv4gJKsM6GbXAcRjlOptiBihfHpRFlaw==
+
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-1.4.2.tgz#e6786b6af5799f82f7ab3a82e53f6182d2b91a58"
