@@ -1,6 +1,4 @@
-import http from 'http';
 import express from 'express';
-import expressGraphQL from 'express-graphql';
 import expressPlayground from 'graphql-playground-middleware-express';
 import { createHandler } from 'graphql-http/lib/use/express';
 import { schema } from './schema/schema.js';
