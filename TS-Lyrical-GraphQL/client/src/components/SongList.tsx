@@ -9,8 +9,8 @@ const getSongListTitles = gql`
 `;
 
 const SongList = () => {
-    // const { data, loading, error} = useQuery(getSongListTitles)
-    // console.log(data);
+    const { data, loading, error} = useQuery(getSongListTitles)
+    console.log(data);
     return (
         <div>testing</div>
     )

@@ -1,10 +1,13 @@
 import express from 'express';
+import cors from 'cors';
 import expressPlayground from 'graphql-playground-middleware-express';
 import { createHandler } from 'graphql-http/lib/use/express';
 import { rootSchema } from './schemas/schema.js';
 
 const app = express();
-const graphQLPlayground = expressPlayground.default
+const graphQLPlayground = expressPlayground.default;
+
+app.use(cors());
 
 app.all('/graphql', createHandler({ schema: rootSchema }));
 app.get('/playground', graphQLPlayground({ endpoint: '/graphql' }));
