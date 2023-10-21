@@ -1,11 +1,11 @@
 import { model } from 'mongoose';
-import { GraphQLObjectType, GraphQLID } from 'graphql';
-import { SongType } from './songType'
-import { LyricType } from './lyric_type';
+import { GraphQLObjectType, GraphQLID, GraphQLString } from 'graphql';
+import { SongType } from './song_type.js'
+import { LyricType } from './lyric_type.js';
 const Lyric = model('lyric');
 const Song = model('song');
 
-const mutation = new GraphQLObjectType({
+const mutations = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     addSong: {
@@ -44,4 +44,4 @@ const mutation = new GraphQLObjectType({
   }
 });
 
-export { mutation };
+export { mutations };

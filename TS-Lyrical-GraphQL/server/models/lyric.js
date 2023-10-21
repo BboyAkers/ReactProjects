@@ -10,7 +10,6 @@ const LyricSchema = new Schema({
   });
   
   LyricSchema.statics.like = function(id) {
-    const Lyric = model('lyric');
   
     return Lyric.findById(id)
       .then(lyric => {
@@ -19,5 +18,5 @@ const LyricSchema = new Schema({
       })
   }
   
-model('lyric', LyricSchema);
+export const Lyric = model('lyric', LyricSchema);
   

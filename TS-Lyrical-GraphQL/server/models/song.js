@@ -30,4 +30,4 @@ SongSchema.statics.findLyrics = (id) => {
     .then(song => song.lyrics);
 }
 
-model('song', SongSchema);
+export const Song = model('song', SongSchema);

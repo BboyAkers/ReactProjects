@@ -1,7 +1,7 @@
 import { model } from 'mongoose';
 import { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } from 'graphql';
-import { SongType } from './songType'
-import { LyricType } from './lyric_type';
+import { SongType } from './song_type.js'
+import { LyricType } from './lyric_type.js';
 const Lyric = model('lyric');
 const Song = model('song');
 
