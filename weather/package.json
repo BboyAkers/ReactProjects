@@ -5,7 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +20,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.3",
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^4.17.21",
     "react": "^0.14.3",
@@ -27,6 +29,8 @@
     "react-redux": "^4.0.0",
     "react-sparklines": "^1.4.2",
     "redux": "^3.0.4",
-    "redux-promise": "^0.5.0"
-  }
+    "redux-promise": "^0.5.0",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
