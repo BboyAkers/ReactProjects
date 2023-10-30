@@ -2,6 +2,24 @@
 <!-- http://localhost:3000/isolated/exercise/01.html -->
 
 <!-- 🐨 Create (in HTML) a <body> with a <div> with the id of "root" -->
+<html>
+
+<body>
+</body>
+<script type="module">
+  const bodyElement = document.getElementsByTagName('body')[0];
+  //or document.body.append('rootDiv');
+  const rootDiv = document.createElement('div');
+  const div = document.createElement('div');
+
+  rootDiv.id = "root"
+  div.textContent = 'Hello World';
+  div.className = 'container';
+  bodyElement.append(rootDiv);
+  rootDiv.append(div);
+</script>
+
+</html>
 <!-- 🐨 Then create a <script type="module"> for your JavaScript -->
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attributes -->
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules -->
@@ -9,11 +27,9 @@
 
 <!-- These next instructions are to be written in JavaScript in the <script> tag -->
 <!-- 🐨 Create a div -->
-<!--   💰 document.createElement('div') -->
-
+<!-- 💰 document.createElement('div')-->
 <!-- 🐨 Set the div's textContent to 'Hello World' and className to 'container' -->
-<!--   💰 div.textContent = '...' -->
-
-<!-- 🐨 Append the div to the root div using `append` -->
-<!--   💰 document.getElementById('root') -->
-<!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+<!-- 💰 div.textContent='...' -->
+<!-- 🐨 Append the div to the root div using`append` -->
+<!-- 💰 document.getElementById('root')-->
+<!-- 📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
