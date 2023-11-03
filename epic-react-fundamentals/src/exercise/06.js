@@ -19,20 +19,28 @@ function UsernameForm({ onSubmitUsername }) {
 
   // 🐨 make sure to associate the label to the input.
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
-
   const usernameInputRef = React.useRef();
+  const [username, setUsername] = React.useState('');
+  // const [error, setError] = React.useState(null);
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setUsername(value.toLowerCase());
+    // setError(isLowerCase ? null : 'Username must be lowercase')
+  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const value = usernameInputRef.current.value
-    onSubmitUsername(value)
+    onSubmitUsername(username)
   }
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input id="usernameInput" ref={usernameInputRef} type="text" />
+        <input id="usernameInput" ref={usernameInputRef} value={username} onChange={handleChange} type="text" />
       </div>
+      {/* <div style={{ color: 'red' }}>{error}</div> */}
       <button type="submit">Submit</button>
     </form>
   )
