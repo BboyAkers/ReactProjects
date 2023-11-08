@@ -3,14 +3,21 @@
 
 import * as React from 'react'
 
-function Greeting({initialName = ''}) {
+function useSyncLocalStorageWithState(key, defaultValue = '') {
+  const [state, setState] = React.useState(() => window.localStorage.getItem(key) || defaultValue)
+
+  React.useEffect(() => {
+    window.localStorage.setItem(key, state)
+  }, [key, state])
+  return [state, setState]
+}
+
+function Greeting({ initialName = '' }) {
+  const [name, setName] = useSyncLocalStorageWithState('name', initialName)
+  console.log('rendering greeting')
   // 🐨 initialize the state to the value from localStorage
   // 💰 window.localStorage.getItem('name') ?? initialName
-  const [name, setName] = React.useState(initialName)
 
-  // 🐨 Here's where you'll use `React.useEffect`.
-  // The callback should set the `name` in localStorage.
-  // 💰 window.localStorage.setItem('name', name)
 
   function handleChange(event) {
     setName(event.target.value)
@@ -27,7 +34,16 @@ function Greeting({initialName = ''}) {
 }
 
 function App() {
-  return <Greeting />
+  const [count, setCount] = React.useState(0)
+
+  return (
+    <>
+      <button onClick={() => setCount(previousCount => previousCount + 1)}>
+        {count}
+      </button>
+      <Greeting />
+    </>
+  )
 }
 
 export default App
