@@ -127,15 +127,21 @@ const GithubUserCard = ({ username }) => {
 
  if(status == 'idle') {
   return (
-    <h1 className='mt-10 text-center text-xl text-white'>Submit a github username</h1>
+    <div className="max-w-3xl bg-white h-[500px] rounded-2xl mt-8 p-8 flex">
+      <h2 className='mt-10 text-center text-xl'>Submit a github username</h2>
+    </div>
   )
  } else if( status === 'pending') {
   return (
-    <h1 className='mt-10 text-center text-xl text-white'>Loading...</h1>
+    <div className="max-w-3xl bg-white h-[500px] rounded-2xl mt-8 p-8">
+      <h2 className='mt-10 text-center text-xl'>Loading...</h2>
+    </div>
   )
  } else if( status === 'rejected') {
   return (
-    <h1 className='mt-10 text-center text-xl text-white'>{error}</h1>
+    <div className="max-w-3xl bg-white h-[500px] rounded-2xl mt-8 p-8">
+      <h2 className='mt-10 text-center text-xl'>{error}</h2>
+    </div>
   )
 } else if( status === 'resolved') {
   return (
