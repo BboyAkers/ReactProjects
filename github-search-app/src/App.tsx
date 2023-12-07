@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import './App.css'
 import CompanyIcon from './assets/icon-company.svg?react';
 import LocationIcon from './assets/icon-location.svg?react';
@@ -149,6 +149,80 @@ const GithubUserCard = ({ username }) => {
   }
 }
 
+const RepoList = () => {
+  //fetch list of repos
+  //display list of repos
+  const [state, setState] = useState({
+    status: 'pending',
+    error: null,
+  });
+
+  const [repos, setRepos] = useState([]);
+  const [filterType, setFilterType] = useState('');
+  const filteredData = useMemo(
+    () => repos.filter((repo) => repo.language === filterType),
+    [repos, filterType]
+  );
+
+  const { status, error } = state;
+  const url = 'https://api.github.com/users/BboyAkers/repos';
+  const fetchRepos = async () => {
+    const response = await window.fetch(url);
+    const data = await response.json();
+    if (response.ok) {
+      setState({ status: 'resolved' });
+      setRepos(data);
+    } else {
+      setState({ status: 'rejected', error: data.message });
+    }
+  };
+
+  useEffect(() => {
+    setState({ status: 'pending' });
+    fetchRepos();
+  }, []);
+
+  //useMemo to filter repos by language
+  const handleFilter = (language: string) => {
+    setState({ status: 'pending' });
+    setFilterType(language);
+    console.log(language);
+    setState({ status: 'resolved' });
+  };
+
+  if (status === 'pending') {
+    return (
+      <div className="max-w-3xl bg-white h-[500px] rounded-2xl mt-8 p-8">
+        <h2 className="mt-10 text-center text-xl">Loading...</h2>
+      </div>
+    );
+  } else if (status === 'resolved') {
+    return (
+      <div className="max-w-3xl bg-white rounded-2xl mt-8 p-8">
+        <h2 className="mt-10 text-center text-xl">Repo List</h2>
+        <button
+          className="bg-blue-500 px-3 rounded-xl text-white"
+          onClick={() => handleFilter('JavaScript')}
+        >
+          JavaScript
+        </button>
+        <button
+          className="bg-blue-500 px-3 rounded-xl text-white"
+          onClick={() => handleFilter('HTML')}
+        >
+          HTML
+        </button>
+        <ul>
+          {filteredData.map((repo) => (
+            <li key={repo.id}>
+              {repo.name} {repo.language}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+};
 
 function App() {
 const [username, setUsername] = useState('');
@@ -158,7 +232,7 @@ const handleSubmit = (newUsername: string) => {
 }
 
   return (
-    <main className="bg-slate-500 h-screen p-6 flex items-center justify-center">
+    <main className="bg-slate-500 h-full p-6 flex items-center justify-center">
       <div className="w-[40rem]">
         <header>
           <h1 className="font-semibold md:text-2xl mb-4">devfinder</h1>
@@ -166,6 +240,9 @@ const handleSubmit = (newUsername: string) => {
         </header>
         <section>
           <GithubUserCard username={username} />
+        </section>
+        <section>
+          <RepoList />
         </section>
       </div>
     </main>
