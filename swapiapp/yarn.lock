@@ -1840,7 +1840,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snyk/protect@latest":
+"@snyk/protect@^1.729.0":
   version "1.729.0"
   resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.729.0.tgz#d0016887416569c7ae9efe0d0528cabb86b5882d"
   integrity sha512-BLBLo9jWR0oSdc6n3oBpcz6Z6zU+QIoPgTrqWo4Vxr7okAgKfQQojLVjNBS5IPjnHXbohNsCmm9TIm3tNeVqjw==
