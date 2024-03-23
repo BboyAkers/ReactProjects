@@ -1,0 +1,94 @@
+{
+  "name": "testing-react-applications-workshop",
+  "title": "Testing React Applications 🧐",
+  "description": "Learn how to test react components and applications",
+  "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
+  "version": "1.0.0",
+  "private": true,
+  "license": "GPL-3.0",
+  "main": "index.js",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8.16.0"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "test:coverage": "npm run test -- --watchAll=false",
+    "test:exercises": "npm run test -- testing.*exercises\\/ --onlyChanged",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "format": "prettier \"**/*.+(js|json|less|css|html|ts|tsx|md)\" --write",
+    "lint": "eslint .",
+    "validate": "npm-run-all --parallel lint test:coverage build",
+    "netlify": "npm run validate && cp -r coverage/lcov-report build/lcov-report",
+    "setup": "node setup"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node ./scripts/pre-commit",
+      "pre-push": "node ./scripts/pre-push"
+    }
+  },
+  "keywords": [],
+  "dependencies": {
+    "import-all.macro": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-test-renderer": "^18.2.0",
+    "react-use-geolocation": "^0.1.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.17.12",
+    "@jackfranklin/test-data-bot": "^1.4.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "faker": "^5.5.3",
+    "husky": "^4.3.8",
+    "msw": "^0.42.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.7.4"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "eslintIgnore": [
+    "coverage",
+    "node_modules",
+    "build",
+    "scripts/workshop-setup.js",
+    "other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kentcdodds/testing-react-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kentcdodds/testing-react-app/issues"
+  },
+  "homepage": "https://testing-react-app.netlify.app",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "msw": {
+    "workerDirectory": "public"
+  }
+}
