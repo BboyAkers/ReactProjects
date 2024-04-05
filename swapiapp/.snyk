@@ -47,3 +47,26 @@ patch:
           react-scripts > eslint-plugin-testing-library >
           @typescript-eslint/experimental-utils >
           @typescript-eslint/typescript-estree > lodash
+    - react-scripts > babel-jest > @jest/transform > @babel/core > lodash:
+        patched: '2024-04-05T15:27:40.887Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > babel-jest > @jest/transform > @babel/core > lodash
+    - react-scripts > @svgr/webpack > @babel/preset-env > @babel/preset-modules > @babel/types > lodash:
+        patched: '2024-04-05T15:27:40.887Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > @svgr/webpack > @babel/preset-env >
+          @babel/preset-modules > @babel/types > lodash
+    - react-scripts > babel-jest > @jest/transform > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2024-04-05T15:27:40.887Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > babel-jest > @jest/transform > @babel/core >
+          @babel/helper-module-transforms > lodash
+    - react-scripts > babel-jest > @jest/transform > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2024-04-05T15:27:40.887Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > babel-jest > @jest/transform > @babel/core >
+          @babel/helper-module-transforms > @babel/helper-replace-supers >
+          @babel/traverse > lodash
