@@ -1,0 +1,49 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - react-scripts > @typescript-eslint/eslint-plugin > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > @typescript-eslint/eslint-plugin > lodash
+    - react-scripts > eslint-plugin-flowtype > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > eslint-plugin-flowtype > lodash
+    - react-scripts > html-webpack-plugin > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > html-webpack-plugin > lodash
+    - react-scripts > webpack-manifest-plugin > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > webpack-manifest-plugin > lodash
+    - react-scripts > babel-eslint > @babel/traverse > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > babel-eslint > @babel/traverse > lodash
+    - react-scripts > optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > optimize-css-assets-webpack-plugin >
+          last-call-webpack-plugin > lodash
+    - react-scripts > webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > webpack-dev-server > http-proxy-middleware > lodash
+    - react-scripts > babel-eslint > @babel/traverse > @babel/generator > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > babel-eslint > @babel/traverse > @babel/generator >
+          lodash
+    - react-scripts > eslint-plugin-testing-library > @typescript-eslint/experimental-utils > @typescript-eslint/typescript-estree > lodash:
+        patched: '2024-04-05T03:30:51.739Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > eslint-plugin-testing-library >
+          @typescript-eslint/experimental-utils >
+          @typescript-eslint/typescript-estree > lodash
