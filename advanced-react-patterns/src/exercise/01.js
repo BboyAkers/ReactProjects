@@ -2,12 +2,12 @@
 // http://localhost:3000/isolated/exercise/01.js
 
 import * as React from 'react'
-import {dequal} from 'dequal'
+import { dequal } from 'dequal'
 
 // ./context/user-context.js
 
 import * as userClient from '../user-client'
-import {useAuth} from '../auth-context'
+import { useAuth } from '../auth-context'
 
 const UserContext = React.createContext()
 UserContext.displayName = 'UserContext'
@@ -17,7 +17,7 @@ function userReducer(state, action) {
     case 'start update': {
       return {
         ...state,
-        user: {...state.user, ...action.updates},
+        user: { ...state.user, ...action.updates },
         status: 'pending',
         storedUser: state.user,
       }
@@ -53,8 +53,10 @@ function userReducer(state, action) {
   }
 }
 
-function UserProvider({children}) {
-  const {user} = useAuth()
+
+
+function UserProvider({ children }) {
+  const { user } = useAuth()
   const [state, dispatch] = React.useReducer(userReducer, {
     status: null,
     error: null,
@@ -74,15 +76,22 @@ function useUser() {
 }
 
 // 🐨 add a function here called `updateUser`
+const updateUser = (dispatch, user, updates) => {
+  dispatch({ type: 'start update', updates: updates })
+  return userClient.updateUser(user, updates).then(
+    updatedUser => dispatch({ type: 'finish update', updatedUser }),
+    error => dispatch({ type: 'fail update', error }),
+  )
+}
 // Then go down to the `handleSubmit` from `UserSettings` and put that logic in
 // this function. It should accept: dispatch, user, and updates
 
-// export {UserProvider, useUser}
+export { UserProvider, useUser, updateUser }
 
 // src/screens/user-profile.js
-// import {UserProvider, useUser} from './context/user-context'
+// import {UserProvider, useUser, updateUser} from './context/user-context'
 function UserSettings() {
-  const [{user, status, error}, userDispatch] = useUser()
+  const [{ user, status, error }, userDispatch] = useUser()
 
   const isPending = status === 'pending'
   const isRejected = status === 'rejected'
@@ -92,23 +101,18 @@ function UserSettings() {
   const isChanged = !dequal(user, formState)
 
   function handleChange(e) {
-    setFormState({...formState, [e.target.name]: e.target.value})
+    setFormState({ ...formState, [e.target.name]: e.target.value })
   }
 
   function handleSubmit(event) {
     event.preventDefault()
-    // 🐨 move the following logic to the `updateUser` function you create above
-    userDispatch({type: 'start update', updates: formState})
-    userClient.updateUser(user, formState).then(
-      updatedUser => userDispatch({type: 'finish update', updatedUser}),
-      error => userDispatch({type: 'fail update', error}),
-    )
+    updateUser(userDispatch, user, formState)
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{marginBottom: 12}}>
-        <label style={{display: 'block'}} htmlFor="username">
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: 'block' }} htmlFor="username">
           Username
         </label>
         <input
@@ -117,11 +121,11 @@ function UserSettings() {
           disabled
           readOnly
           value={formState.username}
-          style={{width: '100%'}}
+          style={{ width: '100%' }}
         />
       </div>
-      <div style={{marginBottom: 12}}>
-        <label style={{display: 'block'}} htmlFor="tagline">
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: 'block' }} htmlFor="tagline">
           Tagline
         </label>
         <input
@@ -129,11 +133,11 @@ function UserSettings() {
           name="tagline"
           value={formState.tagline}
           onChange={handleChange}
-          style={{width: '100%'}}
+          style={{ width: '100%' }}
         />
       </div>
-      <div style={{marginBottom: 12}}>
-        <label style={{display: 'block'}} htmlFor="bio">
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: 'block' }} htmlFor="bio">
           Biography
         </label>
         <textarea
@@ -141,7 +145,7 @@ function UserSettings() {
           name="bio"
           value={formState.bio}
           onChange={handleChange}
-          style={{width: '100%'}}
+          style={{ width: '100%' }}
         />
       </div>
       <div>
@@ -149,7 +153,7 @@ function UserSettings() {
           type="button"
           onClick={() => {
             setFormState(user)
-            userDispatch({type: 'reset'})
+            userDispatch({ type: 'reset' })
           }}
           disabled={!isChanged || isPending}
         >
@@ -162,19 +166,19 @@ function UserSettings() {
           {isPending
             ? '...'
             : isRejected
-            ? '✖ Try again'
-            : isChanged
-            ? 'Submit'
-            : '✔'}
+              ? '✖ Try again'
+              : isChanged
+                ? 'Submit'
+                : '✔'}
         </button>
-        {isRejected ? <pre style={{color: 'red'}}>{error.message}</pre> : null}
+        {isRejected ? <pre style={{ color: 'red' }}>{error.message}</pre> : null}
       </div>
     </form>
   )
 }
 
 function UserDataDisplay() {
-  const [{user}] = useUser()
+  const [{ user }] = useUser()
   return <pre>{JSON.stringify(user, null, 2)}</pre>
 }
 
