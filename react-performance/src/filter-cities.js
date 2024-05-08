@@ -1,4 +1,4 @@
-import {matchSorter} from 'match-sorter'
+import { matchSorter } from 'match-sorter'
 import cities from './us-cities.json'
 
 const allItems = cities.map((city, index) => ({
@@ -18,4 +18,4 @@ export function getItems(filter) {
 }
 
 // This is to avoid some issues https://github.com/kentcdodds/react-performance/issues/115
-export default class makeFilterCitiesWorker {}
+export default class makeFilterCitiesWorker { }
