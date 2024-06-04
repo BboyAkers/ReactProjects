@@ -1,9 +1,11 @@
+import { FormCard } from "./components/FormCard"
+
 function App() {
 
   return (
-    <>
-    <h1>test</h1>
-    </>
+    <div className="bg-white-dark h-screen flex justify-center items-center">
+      <FormCard />
+    </div>
   )
 }
 
