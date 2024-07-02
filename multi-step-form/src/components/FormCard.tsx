@@ -1,9 +1,11 @@
-import { FormDetails } from "./FormDetails"
+// import { FormDetails } from "./FormDetails"
 
-const FormCard = () => {
+import { PropsWithChildren } from "react"
+
+const FormCard = ({children}: PropsWithChildren) => {
   return (
     <div className="p-6 mx-4 bg-white shadow-md rounded-xl border-grey">
-      <FormDetails />
+      {children}
     </div>
   )
 }

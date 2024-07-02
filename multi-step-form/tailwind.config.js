@@ -13,7 +13,7 @@ export default {
           dark: '#022959' // Denim
         },
         'grey': {
-          light: 'F8F9FF', // Very Light Grey
+          light: '#F8F9FF', // Very Light Grey
           DEFAULT: '#D6D9E6', // Light Grey
           dark: '#9699AA' // Grey
         },

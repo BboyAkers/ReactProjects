@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^19.0.0-rc-9d4fba0788-20240530",
-    "react-dom": "^19.0.0-rc-9d4fba0788-20240530"
+    "react-dom": "^19.0.0-rc-9d4fba0788-20240530",
+    "react-hook-form": "^7.52.0"
   },
   "devDependencies": {
     "@types/react": "npm:types-react@rc",
