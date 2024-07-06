@@ -1,4 +1,5 @@
 type PlanTypeRadioCard = { 
+  name: string;
   icon: string;
   title: string;
   price: number;
@@ -6,11 +7,11 @@ type PlanTypeRadioCard = {
   groupName: string;
 }
 
-const PlanType = ({ icon, title, price, isAnnualPricing, groupName }: PlanTypeRadioCard ) => {
+const PlanType = ({ name, icon, title, price, isAnnualPricing, groupName }: PlanTypeRadioCard ) => {
   return (
     <div>
-      <input id={title} type="radio" name={groupName} value={title} className="hidden peer" required /> 
-      <label htmlFor={title} aria-label="Arcade" className="flex p-4 my-4 bg-white border rounded-lg cursor-pointer border-grey peer-checked:border-purple peer-checked:text-purple peer-checked:bg-grey-light">
+      <input id={name} type="radio" name={groupName} value={name} className="hidden peer" required /> 
+      <label htmlFor={name} aria-label="Arcade" className="flex p-4 my-4 bg-white border rounded-lg cursor-pointer border-grey peer-checked:border-purple peer-checked:text-purple peer-checked:bg-grey-light">
       <span className="flex flex-1">
         <img src={icon} alt="svg arcade icon" aria-hidden="true" />
         <span className="flex flex-col pl-4">

@@ -9,6 +9,7 @@ const SelectYourPlan = () => {
       <p className="mb-4 font-light text-grey-dark">You have the option of monthly or yearly billing.</p>
       <fieldset id="chose-plan-type">
         <PlanType
+          name="arcade"
           icon="/icon-arcade.svg"
           title="Arcade"
           price={9}
@@ -16,6 +17,7 @@ const SelectYourPlan = () => {
           isAnnualPricing={isAnnualPricing}
         />
         <PlanType
+          name="advanced"
           icon="/icon-advanced.svg"
           title="Advanced"
           price={12}
@@ -23,6 +25,7 @@ const SelectYourPlan = () => {
           isAnnualPricing={isAnnualPricing}
         />
         <PlanType
+          name="pro"
           icon="/icon-pro.svg"
           title="Pro"
           price={15}
