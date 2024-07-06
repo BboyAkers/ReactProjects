@@ -4,6 +4,7 @@ import { useForm, FormProvider } from "react-hook-form"
 import { FormCard } from "./components/FormCard"
 import { PersonalInfo } from "./components/PersonalInfo";
 import { SelectYourPlan } from "./components/SelectYourPlan";
+import { PickAddOns } from "./components/PickAddOns";
 
 function App() {
   const formMethods = useForm();
@@ -16,7 +17,8 @@ function App() {
         <form onSubmit={formMethods.handleSubmit(onSubmit)}>
           <FormCard>
             {/* <PersonalInfoForm /> */}
-            <SelectYourPlan />
+            {/* <SelectYourPlan /> */}
+            <PickAddOns />
           </FormCard>
           <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white">
             <div className="flex items-center justify-between h-full px-4">
