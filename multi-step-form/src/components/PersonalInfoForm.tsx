@@ -1,5 +1,5 @@
 // import { useActionState, useState } from "react";
-import { useFormContext } from "react-hook-form";
+// import { register } from "react-hook-form";
 
 // type FormInfo = {
 //  name: string,
@@ -7,8 +7,8 @@ import { useFormContext } from "react-hook-form";
 //  phone: string,
 // }
 
-const PersonalInfo = () => {
-  const { register } = useFormContext()
+const PersonalInfoForm = () => {
+  // const { register } = useFormContext()
   return (
     <>
       <h2 className="pb-2 text-2xl font-semibold">Personal info</h2>
@@ -16,7 +16,7 @@ const PersonalInfo = () => {
         <label className="text-xs text-blue-dark">
           Name
           <input 
-            {...register("name")}
+            // {...register("name")}
             type="text"
             placeholder="e.g. Stephen King"
             className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
@@ -25,7 +25,7 @@ const PersonalInfo = () => {
         <label className="text-xs text-blue-dark">
           Email Address
           <input
-            {...register("email")}
+            // {...register("email")}
             type="email"
             name="emailAddress"
             placeholder="e.g. stephenking@lorem.com"
@@ -35,7 +35,7 @@ const PersonalInfo = () => {
         <label className="text-xs text-blue-dark">
           Phone Number
           <input
-            {...register("phone")}
+            // {...register("phone")}
             type="tel"
             name="emailAddress"
             placeholder="e.g. +1 234 567 890"
@@ -46,4 +46,4 @@ const PersonalInfo = () => {
   )
 }
 
-export { PersonalInfo };
+export { PersonalInfoForm };

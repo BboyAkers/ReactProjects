@@ -26,4 +26,4 @@ const PlanType = ({ name, icon, title, price, isAnnualPricing, groupName }: Plan
   );
 }
 
-export { PlanType}
+export { PlanType }
