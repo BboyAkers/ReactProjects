@@ -1,14 +1,12 @@
-// import { useActionState, useState } from "react";
-// import { register } from "react-hook-form";
-
-// type FormInfo = {
-//  name: string,
-//  email: string,
-//  phone: string,
-// }
+import { useFormContext } from "react-hook-form";
+// import { useNavigate } from "react-router-dom";
+// import { useAppState } from "../state";
 
 const PersonalInfoForm = () => {
-  // const { register } = useFormContext()
+  // const [state, setState] = useAppState();
+  const { register } = useFormContext();
+  // const navigate = useNavigate();
+
   return (
     <>
       <h2 className="pb-2 text-2xl font-semibold">Personal info</h2>
@@ -16,7 +14,7 @@ const PersonalInfoForm = () => {
         <label className="text-xs text-blue-dark">
           Name
           <input 
-            // {...register("name")}
+            {...register("name")}
             type="text"
             placeholder="e.g. Stephen King"
             className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
@@ -25,9 +23,8 @@ const PersonalInfoForm = () => {
         <label className="text-xs text-blue-dark">
           Email Address
           <input
-            // {...register("email")}
+            {...register("email")}
             type="email"
-            name="emailAddress"
             placeholder="e.g. stephenking@lorem.com"
             className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
           />
@@ -35,9 +32,8 @@ const PersonalInfoForm = () => {
         <label className="text-xs text-blue-dark">
           Phone Number
           <input
-            // {...register("phone")}
+            {...register("phone")}
             type="tel"
-            name="emailAddress"
             placeholder="e.g. +1 234 567 890"
             className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
           />
