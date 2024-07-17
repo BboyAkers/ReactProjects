@@ -1,19 +1,38 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { FormProvider, useForm } from "react-hook-form";
+import { AppProvider, useAppState } from "./state";
 import { PersonalInfoForm } from "./components/PersonalInfoForm";
-import { AppProvider } from "./state";
 import { SelectYourPlan } from "./components/SelectYourPlan";
 import { PickAddOns } from "./components/PickAddOns";
 import { FinishUp } from "./components/FinishUp";
-import { FormProvider, useForm } from "react-hook-form";
-
-// const saveData = (data) => {
-  // setState({ ...state, ...data });
-//   navigate("/plan");
-// };
 
 function App() {
-  const methods = useForm()
-  const onSubmit = (data) => console.log(data);
+  const value = useAppState();
+  const navigate = useNavigate();
+  const methods = useForm();
+
+  const resolveRouteNavigation = () => {
+    switch (location.pathname) {
+      case "/":
+        navigate("/plan");
+        break;
+      case "/plan":
+        navigate("/addons");
+        break;
+      case "/addons":
+        navigate("/finish");
+        break;
+      default:
+        navigate("/");
+        break;
+    }
+  }
+
+  const onSubmit = (data) => {
+    console.log(data)
+    console.log('testing spreads',{ ...value, ...data })
+    resolveRouteNavigation();
+  };
   return (
     <div className="flex items-center justify-center h-screen bg-white-dark">
       <AppProvider>

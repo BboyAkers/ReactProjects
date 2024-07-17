@@ -2,9 +2,9 @@
 
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
-export const AppStateContext = createContext({});
+const AppStateContext = createContext({});
 
-const AppProvider = ({ children }: PropsWithChildren) => {
+const AppProvider = ({ children }:PropsWithChildren) => {
   const value = useState({});
   return (
     <AppStateContext.Provider value={value}>
@@ -21,4 +21,4 @@ const useAppState = () => {
   return context;
 }
 
-export { AppProvider, useAppState }
+export { useAppState, AppProvider, AppStateContext}

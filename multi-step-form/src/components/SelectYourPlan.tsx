@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { PlanType } from "./PlanType"
-
+// https://claritydev.net/blog/build-a-multistep-form-with-react-hook-form
 const SelectYourPlan = () => {
   const [isAnnualPricing, setIsAnnualPricing] = useState(false)
   return (
