@@ -6,21 +6,17 @@ type PlanTypeRadioCard = {
   title: string;
   price: number;
   isAnnualPricing: boolean;
-  groupName: string;
 }
 
-const PlanType = ({ name, icon, title, price, isAnnualPricing, groupName }: PlanTypeRadioCard ) => {
-  const { register, setValue } = useFormContext();
+const PlanType = ({ name, icon, title, price, isAnnualPricing }: PlanTypeRadioCard ) => {
+  const { register } = useFormContext();
   return (
     <div>
-      <input {...register("planType")} key={name} id={name} type="radio" name={groupName} value={name} className="hidden peer" /> 
+      <input {...register("planType")} key={name} id={name} type="radio" value={[name, String(price)]} className="hidden peer" /> 
       <label 
         htmlFor={name}
         aria-label={name}
         className="flex p-4 my-4 bg-white border rounded-lg cursor-pointer border-grey peer-checked:border-purple peer-checked:text-purple peer-checked:bg-grey-light"
-        onClick={() => {
-          setValue("planType", name)
-        }}
       >
       <span className="flex flex-1">
         <img src={icon} alt="svg arcade icon" aria-hidden="true" />
