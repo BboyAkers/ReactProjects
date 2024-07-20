@@ -7,7 +7,6 @@ import { PickAddOns } from "./components/PickAddOns";
 import { FinishUp } from "./components/FinishUp";
 
 function App() {
-  const value = useAppState();
   const navigate = useNavigate();
   const methods = useForm();
 
@@ -29,8 +28,7 @@ function App() {
   }
 
   const onSubmit = (data) => {
-    console.log(data)
-    console.log('testing spreads',{ ...value, ...data })
+    console.log({ ...data })
     resolveRouteNavigation();
   };
   return (
@@ -58,18 +56,4 @@ function App() {
     </div>
   )
 }
-
-{/* <FormProvider {...formMethods}>
-  <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-    <FormCard>
-      <PersonalInfoForm />
-      <SelectYourPlan />
-      <PickAddOns />
-      <FinishUp />
-      <FormCompleted />
-    </FormCard>
-    
-  </form>
-</FormProvider> */}
-
 export default App

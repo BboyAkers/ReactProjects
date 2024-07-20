@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { PlanType } from "./PlanType"
+import { useFormContext } from "react-hook-form";
 // https://claritydev.net/blog/build-a-multistep-form-with-react-hook-form
 const SelectYourPlan = () => {
+  const { register, setValue } = useFormContext();
   const [isAnnualPricing, setIsAnnualPricing] = useState(false)
   return (
     <>
@@ -13,7 +15,6 @@ const SelectYourPlan = () => {
           icon="/icon-arcade.svg"
           title="Arcade"
           price={9}
-          groupName="plan-type"
           isAnnualPricing={isAnnualPricing}
         />
         <PlanType
@@ -21,7 +22,6 @@ const SelectYourPlan = () => {
           icon="/icon-advanced.svg"
           title="Advanced"
           price={12}
-          groupName="plan-type"
           isAnnualPricing={isAnnualPricing}
         />
         <PlanType
@@ -29,13 +29,24 @@ const SelectYourPlan = () => {
           icon="/icon-pro.svg"
           title="Pro"
           price={15}
-          groupName="plan-type"
           isAnnualPricing={isAnnualPricing}
         />
       </fieldset>
-      <button type="button" onClick={() => setIsAnnualPricing(!isAnnualPricing)}>
-        Monthly/Annual
-      </button>
+      <div className="text-center">
+        <label className="px-4 py-2 m-auto text-white rounded-full bg-blue-dark">
+        <input
+          {...register("isAnnualPricing")}
+          type="button"
+          value={String(isAnnualPricing)}
+          onClick={() =>{
+            setIsAnnualPricing(!isAnnualPricing)
+            setValue('isAnnualPricing', !isAnnualPricing)
+          }}
+          className="hidden"
+        />
+          Switch to {isAnnualPricing ? 'Monthly': 'Annual'}
+        </label>
+      </div>
     </>
   )
 }
