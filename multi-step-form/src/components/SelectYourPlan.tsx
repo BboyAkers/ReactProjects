@@ -40,7 +40,7 @@ const SelectYourPlan = () => {
           value={String(isAnnualPricing)}
           onClick={() =>{
             setIsAnnualPricing(!isAnnualPricing)
-            setValue('isAnnualPricing', String(!isAnnualPricing))
+            setValue('isAnnualPricing', !isAnnualPricing)
           }}
           className="hidden"
         />
