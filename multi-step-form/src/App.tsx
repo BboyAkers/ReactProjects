@@ -5,6 +5,7 @@ import { PersonalInfoForm } from "./components/PersonalInfoForm";
 import { SelectYourPlan } from "./components/SelectYourPlan";
 import { PickAddOns } from "./components/PickAddOns";
 import { FinishUp } from "./components/FinishUp";
+import { FormCompleted } from "./components/FormCompleted";
 
 export type FormInfo = {
   name: string;
@@ -38,6 +39,9 @@ function App() {
       case "/addons":
         navigate("/finish");
         break;
+        case "/finish":
+          navigate("/completed");
+          break;
       default:
         navigate("/");
         break;
@@ -45,7 +49,6 @@ function App() {
   }
   
   const onSubmit = (data) => {
-    console.log({ ...data });
     setFormInfo({ ...data });
     resolveNextRouteNavigation();
   };
@@ -59,12 +62,17 @@ function App() {
                 <Route path="/plan" element={<SelectYourPlan />} />
                 <Route path="/addons" element={<PickAddOns />} />
                 <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
+                <Route path="/completed" element={<FormCompleted />} />
               </Routes>
             </div>
             <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white">
               <div className="flex items-center justify-between h-full px-4">
                 <button className="text-grey-dark" type="button" disabled={location.pathname === "/"} onClick={() => navigate(-1)}>Go Back</button>
-                <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-blue-dark" type="submit">Next Step</button>
+                {location.pathname !== "/finish" ? (
+                  <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-blue-dark" type="submit">Next Step</button>
+                ) : (
+                  <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-purple" type="submit">Confirm</button>
+                )} 
               </div>
             </div>
           </form>

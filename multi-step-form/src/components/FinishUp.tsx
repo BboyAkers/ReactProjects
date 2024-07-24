@@ -47,8 +47,6 @@ const FinishUp = ({formInfo}:FinishUpProps) => {
             {parsedAddOns.map((addOn) => (<p className="flex justify-between pb-2 text-grey-dark">{addOn[0]} <span className="text-blue-dark">+${isAnnualPricing == true ? `${Number(addOn[1]) * 10}/yr` : `${addOn[1]}/mo`}</span></p>))}
           </>
         ): ''}
-        
-        {/* <p className="flex justify-between text-grey-dark">Large storage <span className="text-blue-dark">+$2/mo</span></p> */}
       </div>
       <p className="flex justify-between px-2 py-3 text-sm text-grey-dark">Total (per month) <span className="text-base font-bold text-purple">+${calculateTotalCost()}/mo</span></p>
     </>
