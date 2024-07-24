@@ -44,7 +44,7 @@ const FinishUp = ({formInfo}:FinishUpProps) => {
         {addOns ? (
           <>
             <hr className="my-3" />
-            {parsedAddOns.map((addOn) => (<p className="flex justify-between pb-2 text-grey-dark">{addOn[0]} <span className="text-blue-dark">+${isAnnualPricing == true ? `${Number(addOn[1]) * 10}/yr` : `${addOn[1]}/mo`}</span></p>))}
+            {parsedAddOns.map((addOn) => (<p key={addOn[0]} className="flex justify-between pb-2 text-grey-dark">{addOn[0]} <span className="text-blue-dark">+${isAnnualPricing == true ? `${Number(addOn[1]) * 10}/yr` : `${addOn[1]}/mo`}</span></p>))}
           </>
         ): ''}
       </div>
