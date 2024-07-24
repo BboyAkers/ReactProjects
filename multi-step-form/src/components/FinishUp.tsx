@@ -6,8 +6,29 @@ type FinishUpProps = {
 };
 
 const FinishUp = ({formInfo}:FinishUpProps) => {
-  const {name, email, phone, isAnnualPricing, planType, addons } = formInfo
-  const parsedPlanType = formInfo?.planType.split(',') 
+  const {name, email, phone, isAnnualPricing, planType, addOns } = formInfo
+  const parsedPlanType = planType.split(',')
+  const parsedAddOns: string[][] = []
+  if(addOns) {
+    addOns.forEach((addOn) => {
+      parsedAddOns.push(addOn.split(','));
+    })
+  }
+  const calculateTotalCost = () => {
+    let total = 0
+    if(isAnnualPricing == true) {
+      total = Number(parsedPlanType[1]) * 10
+      parsedAddOns.forEach((addOn) => {
+        total += Number(addOn[1]) * 10
+      })
+    } else {
+      total = Number(parsedPlanType[1])
+      parsedAddOns.forEach((addOn) => {
+        total += Number(addOn[1])
+      })
+    }
+    return total
+  }
   return (
     <>
       <h2 className="pb-2 text-2xl font-semibold text-blue-dark">Finish up</h2>
@@ -15,21 +36,21 @@ const FinishUp = ({formInfo}:FinishUpProps) => {
       <div className="p-4 mb-2 text-sm bg-grey-light">
         <div className="flex justify-between">
           <div>
-            <p className="font-medium text-blue-dark">{parsedPlanType[0]} ({isAnnualPricing == "true" ? 'Annual' : 'Monthly'})</p>
+            <p className="font-medium text-blue-dark">{parsedPlanType[0]} ({isAnnualPricing == true ? 'Annual' : 'Monthly'})</p>
             <Link to="/plan" className="underline text-grey-dark">Change</Link>
           </div>
-          <span className="font-bold">${parsedPlanType[1]}/{isAnnualPricing == "true" ? 'yr' : 'mo'}</span>
+          <span className="font-bold">${isAnnualPricing == true ? `${Number(parsedPlanType[1]) * 10}/yr` : `${parsedPlanType[1]}/mo`}</span>
         </div>
-        {addons ? (
+        {addOns ? (
           <>
             <hr className="my-3" />
-            <p className="flex justify-between pb-2 text-grey-dark">something <span className="text-blue-dark">+$1/mo</span></p>
+            {parsedAddOns.map((addOn) => (<p className="flex justify-between pb-2 text-grey-dark">{addOn[0]} <span className="text-blue-dark">+${isAnnualPricing == true ? `${Number(addOn[1]) * 10}/yr` : `${addOn[1]}/mo`}</span></p>))}
           </>
         ): ''}
         
         {/* <p className="flex justify-between text-grey-dark">Large storage <span className="text-blue-dark">+$2/mo</span></p> */}
       </div>
-      <p className="flex justify-between px-2 py-3 text-sm text-grey-dark">Total (per month) <span className="text-base font-bold text-purple">+$12/mo</span></p>
+      <p className="flex justify-between px-2 py-3 text-sm text-grey-dark">Total (per month) <span className="text-base font-bold text-purple">+${calculateTotalCost()}/mo</span></p>
     </>
   )
 }

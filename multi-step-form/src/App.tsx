@@ -12,15 +12,15 @@ export type FormInfo = {
   phone: string;
   isAnnualPricing: string | boolean;
   planType: string;
-  addons?: string[];
+  addOns?: string[];
 }
-const defaultFormInfoStates = { 
+const defaultFormInfoStates: FormInfo = { 
   name: '',
   email: '',
   phone: '',
   isAnnualPricing: 'false',
   planType: '',
-  addons: []
+  addOns: []
 }
 function App() {
   const navigate = useNavigate();
