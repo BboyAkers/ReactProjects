@@ -1,32 +1,35 @@
 import { useFormContext } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
-// import { useAppState } from "../state";
 
 const PersonalInfoForm = () => {
-  // const [state, setState] = useAppState();
-  const { register } = useFormContext();
-  // const navigate = useNavigate();
+  const { register, formState: { errors } } = useFormContext();
 
   return (
     <>
       <h2 className="pb-2 text-2xl font-semibold">Personal info</h2>
       <p className="mb-4 font-light text-grey-dark">Please provide your name, email address, and phone number.</p>
+      <div className="w-72">
         <label className="text-xs text-blue-dark">
-          Name
+          <span className="flex justify-between">
+            <span>Name</span>
+            {errors.name && <span className="font-bold text-red">This field is required</span>}
+          </span>
           <input 
-            {...register("name")}
+            {...register("name", { required: true })}
             type="text"
             placeholder="e.g. Stephen King"
-            className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
+            className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72 focus:border-purple invalid:border-red focus:invalid:border-red"
           />
         </label>
         <label className="text-xs text-blue-dark">
-          Email Address
+          <span className="flex justify-between">
+            <span>Email Address</span>
+            {errors.email && <span className="font-bold text-red">This field is required</span>}
+          </span>
           <input
-            {...register("email")}
+            {...register("email", { required: true })}
             type="email"
             placeholder="e.g. stephenking@lorem.com"
-            className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
+            className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72 focus:border-purple"
           />
         </label>
         <label className="text-xs text-blue-dark">
@@ -35,9 +38,10 @@ const PersonalInfoForm = () => {
             {...register("phone")}
             type="tel"
             placeholder="e.g. +1 234 567 890"
-            className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72"
+            className="block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-72 focus:border-purple"
           />
         </label>
+        </div>
     </>
   )
 }
