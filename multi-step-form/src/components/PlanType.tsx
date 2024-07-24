@@ -12,7 +12,7 @@ const PlanType = ({ name, icon, title, price, isAnnualPricing }: PlanTypeRadioCa
   const { register } = useFormContext();
   return (
     <div>
-      <input {...register("planType")} key={name} id={name} type="radio" value={[name, String(price)]} className="hidden peer" /> 
+      <input {...register("planType", { required: true })} key={name} id={name} type="radio" value={[name, String(price)]} className="hidden peer" /> 
       <label 
         htmlFor={name}
         aria-label={name}

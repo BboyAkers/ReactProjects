@@ -1,16 +1,33 @@
+import { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
-import { AppProvider, useAppState } from "./state";
 import { PersonalInfoForm } from "./components/PersonalInfoForm";
 import { SelectYourPlan } from "./components/SelectYourPlan";
 import { PickAddOns } from "./components/PickAddOns";
 import { FinishUp } from "./components/FinishUp";
 
+export type FormInfo = {
+  name: string;
+  email: string;
+  phone: string;
+  isAnnualPricing: string | boolean;
+  planType: string;
+  addons?: string[];
+}
+const defaultFormInfoStates = { 
+  name: '',
+  email: '',
+  phone: '',
+  isAnnualPricing: 'false',
+  planType: '',
+  addons: []
+}
 function App() {
   const navigate = useNavigate();
   const methods = useForm();
+  const [formInfo, setFormInfo] = useState(defaultFormInfoStates);
 
-  const resolveRouteNavigation = () => {
+  const resolveNextRouteNavigation = () => {
     switch (location.pathname) {
       case "/":
         navigate("/plan");
@@ -26,34 +43,33 @@ function App() {
         break;
     }
   }
-
+  
   const onSubmit = (data) => {
-    console.log({ ...data })
-    resolveRouteNavigation();
+    console.log({ ...data });
+    setFormInfo({ ...data });
+    resolveNextRouteNavigation();
   };
   return (
-    <div className="flex items-center justify-center h-screen bg-white-dark">
-      <AppProvider>
+    <div className="flex items-center justify-center h-screen m-4">
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <div className="p-6 mx-4 bg-white shadow-md rounded-xl border-grey">
+            <div className="p-6 bg-white shadow-md rounded-xl border-grey">
               <Routes>
                 <Route path="/" element={<PersonalInfoForm />} />
                 <Route path="/plan" element={<SelectYourPlan />} />
                 <Route path="/addons" element={<PickAddOns />} />
-                <Route path="/finish" element={<FinishUp />} />
+                <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
               </Routes>
             </div>
             <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white">
               <div className="flex items-center justify-between h-full px-4">
-                <button className="text-grey-dark" type="button">Go Back</button>
+                <button className="text-grey-dark" type="button" disabled={location.pathname === "/"} onClick={() => navigate(-1)}>Go Back</button>
                 <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-blue-dark" type="submit">Next Step</button>
               </div>
             </div>
           </form>
         </FormProvider>
-      </AppProvider>
     </div>
   )
 }
-export default App
+export { App }
