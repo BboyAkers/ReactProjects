@@ -6,12 +6,13 @@ import { SelectYourPlan } from "./components/SelectYourPlan";
 import { PickAddOns } from "./components/PickAddOns";
 import { FinishUp } from "./components/FinishUp";
 import { FormCompleted } from "./components/FormCompleted";
+import { Stepper } from "./components/Step";
 
 export type FormInfo = {
   name: string;
   email: string;
   phone: string;
-  isAnnualPricing: string | boolean;
+  isAnnualPricing: boolean;
   planType: string;
   addOns?: string[];
 }
@@ -19,7 +20,7 @@ const defaultFormInfoStates: FormInfo = {
   name: '',
   email: '',
   phone: '',
-  isAnnualPricing: 'false',
+  isAnnualPricing: false,
   planType: '',
   addOns: []
 }
@@ -53,31 +54,40 @@ function App() {
     resolveNextRouteNavigation();
   };
   return (
-    <div className="flex items-center justify-center h-screen m-4">
-        <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <div className="p-6 bg-white shadow-md rounded-xl border-grey">
-              <Routes>
-                <Route path="/" element={<PersonalInfoForm />} />
-                <Route path="/plan" element={<SelectYourPlan />} />
-                <Route path="/addons" element={<PickAddOns />} />
-                <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
-                <Route path="/completed" element={<FormCompleted />} />
-              </Routes>
-            </div>
-            <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white">
-              <div className="flex items-center justify-between h-full px-4">
-                <button className="text-grey-dark" type="button" disabled={location.pathname === "/"} onClick={() => navigate(-1)}>Go Back</button>
-                {location.pathname !== "/finish" ? (
-                  <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-blue-dark" type="submit">Next Step</button>
-                ) : (
-                  <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-purple" type="submit">Confirm</button>
-                )} 
+    <>
+      <div className="flex flex-col items-center h-screen bg-white-dark">
+        <img src="/bg-sidebar-mobile.svg" alt="bg-sidebar-mobile" className="absolute top-0"/>
+        <div className="z-10 px-4 mt-10">
+          <Stepper />  
+          <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+              <div className="p-6 bg-white shadow-md rounded-xl border-grey">
+                <Routes>
+                  <Route path="/" element={<PersonalInfoForm />} />
+                  <Route path="/plan" element={<SelectYourPlan isAnnualPricing={formInfo.isAnnualPricing} setIsAnnualPricing={() => setFormInfo({ ...formInfo, isAnnualPricing: !formInfo.isAnnualPricing })} />} />
+                  <Route path="/addons" element={<PickAddOns isAnnualPricing={formInfo.isAnnualPricing} />} />
+                  <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
+                  <Route path="/completed" element={<FormCompleted />} />
+                </Routes>
               </div>
-            </div>
-          </form>
-        </FormProvider>
-    </div>
+              <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white">
+                <div className="flex items-center justify-between h-full px-4">
+                  <button className="text-grey-dark" type="button" disabled={location.pathname === "/"} onClick={() => navigate(-1)}>Go Back</button>
+                  {location.pathname == "/finish" ? (
+                    <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-purple" type="submit">Confirm</button>
+                  ) : (
+                  location.pathname == "/completed" ? (
+                    <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-purple" type="submit">New Form</button>
+                  ) : 
+                    <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-blue-dark" type="submit">Next Step</button>
+                  )} 
+                </div>
+              </div>
+            </form>
+          </FormProvider>
+        </div>
+      </div>
+    </>
   )
 }
 export { App }
