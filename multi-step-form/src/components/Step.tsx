@@ -13,7 +13,7 @@ export const Stepper = () => {
  
   return (
     <nav>
-      <ol className="flex space-x-5 *:border-2 *:rounded-full *:px-4 mb-8 text-white">
+      <ol className="flex space-x-5 *:border-2 *:rounded-full *:px-4 mb-8 text-white justify-center">
         <li className={getLinkClass("/")}>
           <span>1</span>
         </li>

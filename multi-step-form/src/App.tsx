@@ -55,8 +55,10 @@ function App() {
   };
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen m-4">
-        <Stepper />  
+      <div className="flex flex-col items-center h-screen bg-white-dark">
+        <img src="/bg-sidebar-mobile.svg" alt="bg-sidebar-mobile" className="absolute top-0"/>
+        <div className="z-10 px-4 mt-10">
+          <Stepper />  
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
               <div className="p-6 bg-white shadow-md rounded-xl border-grey">
@@ -83,6 +85,7 @@ function App() {
               </div>
             </form>
           </FormProvider>
+        </div>
       </div>
     </>
   )
