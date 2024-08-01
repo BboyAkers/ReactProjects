@@ -10,10 +10,10 @@ export const Stepper = () => {
       `p-2 ${path === location.pathname ? "bg-blue text-blue-dark border-blue" : "border-white"}`
     );
   };
- 
+
   return (
-    <nav>
-      <ol className="flex space-x-5 *:border-2 *:rounded-full *:px-4 mb-8 text-white justify-center">
+    <nav className="md:bg-[url('/bg-sidebar-desktop.svg')] md:h-full md:bg-no-repeat md:bg-contain">
+      <ol className="flex space-x-5 *:border-2 *:rounded-full *:px-4 mb-8 text-white justify-center z-50">
         <li className={getLinkClass("/")}>
           <span>1</span>
         </li>
