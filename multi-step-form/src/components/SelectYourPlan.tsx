@@ -42,7 +42,7 @@ const SelectYourPlan = ({ isAnnualPricing, toggleAnnualPricing }: {isAnnualPrici
           }}
           className="px-4 py-2 m-auto text-white rounded-full bg-blue-dark"
         >
-          Switch to {!isAnnualPricing ? 'Monthly': 'Annual'}
+          Switch to {isAnnualPricing ? 'Monthly': 'Annual'}
         </button>
       </div>
     </>

@@ -71,7 +71,7 @@ function App() {
                 <div className="hidden h-full md:block md:col-span-2">
                   <Stepper />
                 </div>
-                <div className="md:col-span-4">
+                <div className="py-10 md:col-span-4 md:px-14">
                   <Routes>
                     <Route path="/" element={<PersonalInfoForm />} />
                     <Route path="/plan" element={<SelectYourPlan isAnnualPricing={formInfo.isAnnualPricing} toggleAnnualPricing={toggleAnnualPricing} />} />

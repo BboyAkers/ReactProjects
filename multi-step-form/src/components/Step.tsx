@@ -7,27 +7,47 @@ export const Stepper = () => {
  
   const getLinkClass = (path:string) => {
     return (
-      `p-2 ${path === location.pathname ? "bg-blue text-blue-dark border-blue" : "border-white"}`
+      `px-3 py-2 border-2 rounded-full inline-block ${path === location.pathname ? "bg-blue text-blue-dark border-blue" : "border-white"}`
     );
   };
 
   return (
     <nav className="md:bg-[url('/bg-sidebar-desktop.svg')] md:h-full md:bg-no-repeat md:bg-contain">
-      <ol className="flex space-x-5 *:border-2 *:rounded-full *:px-4 mb-8 text-white justify-center z-50">
-        <li className={getLinkClass("/")}>
-          <span>1</span>
+      <ol className="z-50 flex justify-center md:justify-normal mb-8 md:mb-0 space-x-5 md:space-x-0 text-white md:flex-col md:*:h-16 p-5">
+        <li className="">
+          <span className={getLinkClass("/")}>1</span>
+          <div className="hidden md:inline-block">
+            <span className="hidden md:block">Step 1</span>
+            <span>YOUR INFO</span>
+          </div>
         </li>
-        <li className={getLinkClass("/plan")}>
-          <span>2</span>
+        <li>
+          <span className={getLinkClass("/plan")}>2</span>
+          {/* <div>
+            <span>Step 2</span>
+            <span>SELECT PLAN</span>
+          </div> */}
         </li>
-        <li className={getLinkClass("/addons")}>
-          <span>3</span>
+        <li>
+          <span className={getLinkClass("/addons")}>3</span>
+          {/* <div>
+            <span>Step 3</span>
+            <span>ADD-ONS</span>
+          </div> */}
         </li>
-        <li className={getLinkClass("/finish")}>
-          <span>4</span>
+        <li>
+          <span className={getLinkClass("/finish")}>4</span>
+          {/* <div>
+            <span>Step 4</span>
+            <span>FINISH</span>
+          </div> */}
         </li>
-        <li className={getLinkClass("/completed")}>
-          <span>5</span>
+        <li>
+          <span className={getLinkClass("/completed")}>5</span>
+          {/* <div>
+            <span>Step 5</span>
+            <span>SUBMITTED</span>
+          </div> */}
         </li>
       </ol>
     </nav>
