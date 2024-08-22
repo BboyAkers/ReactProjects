@@ -1,6 +1,6 @@
 import  { useFormContext } from "react-hook-form";
 import { AddOnItem } from "./AddOnItem"
-const PickAddOns = () => {
+const PickAddOns = ({ isAnnualPricing }: {isAnnualPricing: boolean}) => {
   const { getValues, formState: { errors } } = useFormContext();
   return (
     <>
