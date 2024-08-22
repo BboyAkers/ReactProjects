@@ -3,7 +3,6 @@ import { useFormContext } from "react-hook-form";
 // https://claritydev.net/blog/build-a-multistep-form-with-react-hook-form
 const SelectYourPlan = ({ isAnnualPricing, toggleAnnualPricing }: {isAnnualPricing: boolean, toggleAnnualPricing: () => void}) => {
   const { register, formState: { errors } } = useFormContext();
-  // const [annualPricing, setAnnualPricing] = useState(false)
 
   return (
     <>

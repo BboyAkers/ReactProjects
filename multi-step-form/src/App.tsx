@@ -67,7 +67,7 @@ function App() {
           </div>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-1 p-6 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey max-w-[940px] md:h-[600px]">
+              <div className="grid grid-cols-1 p-6 md:p-4 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey max-w-[940px] md:h-[600px]">
                 <div className="hidden h-full md:block md:col-span-2">
                   <Stepper />
                 </div>
