@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import { PersonalInfoForm } from "./components/PersonalInfoForm";
@@ -12,7 +12,7 @@ export type FormInfo = {
   name: string;
   email: string;
   phone: string;
-  isAnnualPricing: boolean;
+  isAnnualPricing: boolean |'true' | 'false';
   planType: string;
   addOns?: string[];
 }
@@ -26,12 +26,9 @@ const defaultFormInfoStates: FormInfo = {
 }
 function App() {
   const navigate = useNavigate();
-  const methods = useForm();
-  const [formInfo, setFormInfo] = useState(defaultFormInfoStates);
-
-  const toggleAnnualPricing = () => {
-    setFormInfo({ ...formInfo, isAnnualPricing: !formInfo.isAnnualPricing });
-  };
+  const methods = useForm({
+    defaultValues: defaultFormInfoStates
+  });
 
   const resolveNextRouteNavigation = () => {
     switch (location.pathname) {
@@ -52,9 +49,16 @@ function App() {
         break;
     }
   }
+
+  useEffect(() => {
+    if(!methods.getValues('name')){
+      navigate("/");
+    }
+  }, [methods, navigate]);
   
   const onSubmit = (data) => {
-    setFormInfo({ ...data });
+    // Your data :)
+    console.table(data);
     resolveNextRouteNavigation();
   };
   return (
@@ -67,16 +71,16 @@ function App() {
           </div>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-1 p-6 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey max-w-[940px] md:h-[600px]">
+              <div className="grid grid-cols-1 p-6 md:p-4 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey max-w-[940px] md:h-[600px]">
                 <div className="hidden h-full md:block md:col-span-2">
                   <Stepper />
                 </div>
-                <div className="md:col-span-4">
+                <div className="py-10 md:col-span-4 md:px-14">
                   <Routes>
                     <Route path="/" element={<PersonalInfoForm />} />
-                    <Route path="/plan" element={<SelectYourPlan isAnnualPricing={formInfo.isAnnualPricing} toggleAnnualPricing={toggleAnnualPricing} />} />
-                    <Route path="/addons" element={<PickAddOns isAnnualPricing={formInfo.isAnnualPricing} />} />
-                    <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
+                    <Route path="/plan" element={<SelectYourPlan />} />
+                    <Route path="/addons" element={<PickAddOns />} />
+                    <Route path="/finish" element={<FinishUp />} />
                     <Route path="/completed" element={<FormCompleted />} />
                   </Routes>
                 </div>

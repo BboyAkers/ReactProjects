@@ -1,6 +1,5 @@
 import { AddOnItem } from "./AddOnItem"
-
-const PickAddOns = ({ isAnnualPricing }: { isAnnualPricing: boolean | string }) => {
+const PickAddOns = () => {
   return (
     <>
       <h2 className="pb-2 text-2xl font-semibold">Pick add-ons</h2>
@@ -8,20 +7,17 @@ const PickAddOns = ({ isAnnualPricing }: { isAnnualPricing: boolean | string }) 
         <AddOnItem
           title="Online Service"
           subtitle="Access to multiplayer games"
-          price={1}
-          isAnnualPricing={isAnnualPricing} />
+          price={1} />
         <AddOnItem
           title="Larger storage"
           subtitle="Extra 1TB of cloud save"
-          price={2}
-          isAnnualPricing={isAnnualPricing} />
+          price={2} />
         <AddOnItem
           title="Customizable profile"
           subtitle="Custom theme on your profile"
-          price={2}
-          isAnnualPricing={isAnnualPricing} />
+          price={2} />
     </>
   )
 }
 
-export { PickAddOns }
+export { PickAddOns } 
