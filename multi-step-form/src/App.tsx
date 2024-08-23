@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import { PersonalInfoForm } from "./components/PersonalInfoForm";
@@ -12,7 +12,7 @@ export type FormInfo = {
   name: string;
   email: string;
   phone: string;
-  isAnnualPricing: boolean;
+  isAnnualPricing: 'true' | 'false';
   planType: string;
   addOns?: string[];
 }
@@ -20,20 +20,15 @@ const defaultFormInfoStates: FormInfo = {
   name: '',
   email: '',
   phone: '',
-  isAnnualPricing: false,
+  isAnnualPricing: 'false',
   planType: '',
   addOns: []
 }
 function App() {
   const navigate = useNavigate();
-  const methods = useForm();
-  const [formInfo, setFormInfo] = useState(defaultFormInfoStates);
-
-  const toggleAnnualPricing = () => {
-    const { isAnnualPricing } = methods.getValues();
-    setFormInfo({ ...formInfo, isAnnualPricing: !formInfo.isAnnualPricing });
-    methods.setValue("isAnnualPricing", !isAnnualPricing);
-  };
+  const methods = useForm({
+    defaultValues: defaultFormInfoStates
+  });
 
   const resolveNextRouteNavigation = () => {
     switch (location.pathname) {
@@ -54,9 +49,15 @@ function App() {
         break;
     }
   }
+
+  useEffect(() => {
+    if(!methods.getValues('name')){
+      navigate("/");
+    }
+  }, [methods, navigate]);
   
   const onSubmit = (data) => {
-    setFormInfo({ ...data });
+    console.table(data);
     resolveNextRouteNavigation();
   };
   return (
@@ -76,9 +77,9 @@ function App() {
                 <div className="py-10 md:col-span-4 md:px-14">
                   <Routes>
                     <Route path="/" element={<PersonalInfoForm />} />
-                    <Route path="/plan" element={<SelectYourPlan toggleAnnualPricing={toggleAnnualPricing} />} />
+                    <Route path="/plan" element={<SelectYourPlan />} />
                     <Route path="/addons" element={<PickAddOns />} />
-                    <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
+                    <Route path="/finish" element={<FinishUp />} />
                     <Route path="/completed" element={<FormCompleted />} />
                   </Routes>
                 </div>

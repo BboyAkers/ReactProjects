@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { FormInfo } from "../App";
+import { useFormContext } from "react-hook-form";
 
-type FinishUpProps = {
-  formInfo: FormInfo;
-};
+// type FinishUpProps = {
+//   formInfo: FormInfo;
+// };
 
-const FinishUp = ({formInfo}:FinishUpProps) => {
-  const {name, email, phone, isAnnualPricing, planType, addOns } = formInfo
+const FinishUp = () => {
+  const { getValues } = useFormContext();
+  const { isAnnualPricing, planType, addOns } = getValues();
   const parsedPlanType = planType.split(',')
   const parsedAddOns: string[][] = []
   if(addOns) {
@@ -16,7 +18,7 @@ const FinishUp = ({formInfo}:FinishUpProps) => {
   }
   const calculateTotalCost = () => {
     let total = 0
-    if(isAnnualPricing == true) {
+    if(isAnnualPricing) {
       total = Number(parsedPlanType[1]) * 10
       parsedAddOns.forEach((addOn) => {
         total += Number(addOn[1]) * 10

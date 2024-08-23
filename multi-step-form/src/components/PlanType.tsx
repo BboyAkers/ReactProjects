@@ -8,8 +8,9 @@ type PlanTypeRadioCard = {
 }
 
 const PlanType = ({ name, icon, title, price }: PlanTypeRadioCard ) => {
-  const { register, getValues } = useFormContext();
-  const { isAnnualPricing } = getValues();
+  const { register, watch } = useFormContext();
+  const isAnnualPricing = watch("isAnnualPricing");
+  
   return (
     <div>
       <input {...register("planType", { required: true })} key={name} id={name} type="radio" value={[name, String(price)]} className="hidden peer" /> 
@@ -22,8 +23,8 @@ const PlanType = ({ name, icon, title, price }: PlanTypeRadioCard ) => {
         <img src={icon} alt="svg arcade icon" aria-hidden="true" />
         <span className="flex flex-col pl-4">
           <span className="block font-medium text-blue-dark">{title}</span>
-          <span className="flex items-center mt-1 text-sm text-grey-dark">{isAnnualPricing ? `$${price * 10}/yr` : `$${price}/mo`}</span>
-          { isAnnualPricing && <span className="mt-2 text-xs text-blue-dark">2 months free</span>}
+          <span className="flex items-center mt-1 text-sm text-grey-dark">{isAnnualPricing == true || isAnnualPricing == "true" ? `$${price * 10}/yr` : `$${price}/mo`}</span>
+          { (isAnnualPricing == true || isAnnualPricing == "true") && <span className="mt-2 text-xs text-blue-dark">2 months free</span>}
         </span>
       </span>
       <span className="absolute border-2 rounded-lg pointer-events-none -inset-px" aria-hidden="true"></span>
