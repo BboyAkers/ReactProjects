@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import { PersonalInfoForm } from "./components/PersonalInfoForm";
@@ -56,7 +56,7 @@ function App() {
     }
   }, [methods, navigate]);
   
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInfo) => {
     // Your data :)
     console.table(data);
     resolveNextRouteNavigation();

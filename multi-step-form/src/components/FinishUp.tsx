@@ -12,7 +12,7 @@ const FinishUp = () => {
   const parsedPlanType = planType.split(',')
   const parsedAddOns: string[][] = []
   if(addOns) {
-    addOns.forEach((addOn) => {
+    addOns.forEach((addOn: string) => {
       parsedAddOns.push(addOn.split(','));
     })
   }
