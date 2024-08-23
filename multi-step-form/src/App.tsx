@@ -30,7 +30,9 @@ function App() {
   const [formInfo, setFormInfo] = useState(defaultFormInfoStates);
 
   const toggleAnnualPricing = () => {
+    const { isAnnualPricing } = methods.getValues();
     setFormInfo({ ...formInfo, isAnnualPricing: !formInfo.isAnnualPricing });
+    methods.setValue("isAnnualPricing", !isAnnualPricing);
   };
 
   const resolveNextRouteNavigation = () => {
@@ -74,8 +76,8 @@ function App() {
                 <div className="py-10 md:col-span-4 md:px-14">
                   <Routes>
                     <Route path="/" element={<PersonalInfoForm />} />
-                    <Route path="/plan" element={<SelectYourPlan isAnnualPricing={formInfo.isAnnualPricing} toggleAnnualPricing={toggleAnnualPricing} />} />
-                    <Route path="/addons" element={<PickAddOns isAnnualPricing={formInfo.isAnnualPricing} />} />
+                    <Route path="/plan" element={<SelectYourPlan toggleAnnualPricing={toggleAnnualPricing} />} />
+                    <Route path="/addons" element={<PickAddOns />} />
                     <Route path="/finish" element={<FinishUp formInfo={formInfo} />} />
                     <Route path="/completed" element={<FormCompleted />} />
                   </Routes>

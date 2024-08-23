@@ -1,8 +1,9 @@
 import { PlanType } from "./PlanType"
 import { useFormContext } from "react-hook-form";
 // https://claritydev.net/blog/build-a-multistep-form-with-react-hook-form
-const SelectYourPlan = ({ isAnnualPricing, toggleAnnualPricing }: {isAnnualPricing: boolean, toggleAnnualPricing: () => void}) => {
-  const { register, formState: { errors } } = useFormContext();
+const SelectYourPlan = ({ toggleAnnualPricing }: { toggleAnnualPricing: () => void}) => {
+  const { register, getValues, formState: { errors } } = useFormContext();
+  const { isAnnualPricing } = getValues();
 
   return (
     <>
@@ -14,23 +15,17 @@ const SelectYourPlan = ({ isAnnualPricing, toggleAnnualPricing }: {isAnnualPrici
           name="Arcade"
           icon="/icon-arcade.svg"
           title="Arcade"
-          price={9}
-          isAnnualPricing={isAnnualPricing}
-        />
+          price={9} />
         <PlanType
           name="Advanced"
           icon="/icon-advanced.svg"
           title="Advanced"
-          price={12}
-          isAnnualPricing={isAnnualPricing}
-        />
+          price={12} />
         <PlanType
           name="Pro"
           icon="/icon-pro.svg"
           title="Pro"
-          price={15}
-          isAnnualPricing={isAnnualPricing}
-        />
+          price={15} />
       </fieldset>
       <div className="text-center">
         <button 
