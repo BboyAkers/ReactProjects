@@ -8,7 +8,7 @@ const SelectYourPlan = () => {
       <h2 className="pb-2 text-2xl font-semibold">Select your plan</h2>
       <p className="mb-4 font-light text-grey-dark">You have the option of monthly or yearly billing.</p>
       {errors.planType && <p className="my-1 font-bold text-center text-red">Please select a plan</p>}
-      <fieldset id="chose-plan-type">
+      <fieldset id="chose-plan-type" className="flex flex-col md:space-x-2 md:justify-between md:flex-row">
         <PlanType
           name="Arcade"
           icon="/icon-arcade.svg"
