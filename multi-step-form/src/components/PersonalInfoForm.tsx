@@ -10,7 +10,7 @@ const PersonalInfoForm = () => {
       <div>
         <label className="w-full text-xs text-blue-dark">
           <span className="flex justify-between">
-            <span>Name</span>
+            <span>Name &#42;</span>
             {errors.name && <span className="font-bold text-red">This field is required</span>}
           </span>
           <input 
@@ -22,7 +22,7 @@ const PersonalInfoForm = () => {
         </label>
         <label className="w-full text-xs text-blue-dark">
           <span className="flex justify-between">
-            <span>Email Address</span>
+            <span>Email Address &#42;</span>
             {errors.email && <span className="font-bold text-red">This field is required</span>}
           </span>
           <input

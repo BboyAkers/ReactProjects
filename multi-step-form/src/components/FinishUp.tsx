@@ -38,15 +38,15 @@ const FinishUp = () => {
       <div className="p-4 mb-2 text-sm bg-grey-light">
         <div className="flex justify-between">
           <div>
-            <p className="font-medium text-blue-dark">{parsedPlanType[0]} ({isAnnualPricing == true ? 'Annual' : 'Monthly'})</p>
+            <p className="font-medium text-blue-dark">{parsedPlanType[0]} ({isAnnualPricing == true || isAnnualPricing == "true" ? 'Annual' : 'Monthly'})</p>
             <Link to="/plan" className="underline text-grey-dark">Change</Link>
           </div>
-          <span className="font-bold">${isAnnualPricing == true ? `${Number(parsedPlanType[1]) * 10}/yr` : `${parsedPlanType[1]}/mo`}</span>
+          <span className="font-bold">${isAnnualPricing == true || isAnnualPricing == "true" ? `${Number(parsedPlanType[1]) * 10}/yr` : `${parsedPlanType[1]}/mo`}</span>
         </div>
         {addOns ? (
           <>
             <hr className="my-3" />
-            {parsedAddOns.map((addOn) => (<p key={addOn[0]} className="flex justify-between pb-2 text-grey-dark">{addOn[0]} <span className="text-blue-dark">+${isAnnualPricing == true ? `${Number(addOn[1]) * 10}/yr` : `${addOn[1]}/mo`}</span></p>))}
+            {parsedAddOns.map((addOn) => (<p key={addOn[0]} className="flex justify-between pb-2 text-grey-dark">{addOn[0]} <span className="text-blue-dark">+${isAnnualPricing == true || isAnnualPricing == "true" ? `${Number(addOn[1]) * 10}/yr` : `${addOn[1]}/mo`}</span></p>))}
           </>
         ): ''}
       </div>

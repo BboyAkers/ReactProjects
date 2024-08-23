@@ -6,8 +6,8 @@ type AddOnItemType = {
   price: number;
 }
 const AddOnItem = ({ title, subtitle, price }: AddOnItemType) => {
-  const { register, getValues } = useFormContext();
-  const { isAnnualPricing } = getValues();
+  const { register, watch } = useFormContext();
+  const isAnnualPricing  = watch("isAnnualPricing");
   
   return (
     <label className="flex px-4 py-3 my-4 items-center bg-white border rounded-lg cursor-pointer border-grey has-[:checked]:border-purple has-[:checked]:text-purple has-[:checked]:bg-grey-light">
