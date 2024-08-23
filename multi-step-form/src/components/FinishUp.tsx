@@ -1,10 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { FormInfo } from "../App";
 import { useFormContext } from "react-hook-form";
-
-// type FinishUpProps = {
-//   formInfo: FormInfo;
-// };
 
 const FinishUp = () => {
   const { getValues } = useFormContext();
