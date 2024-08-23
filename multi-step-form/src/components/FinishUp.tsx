@@ -12,6 +12,7 @@ const FinishUp = () => {
       parsedAddOns.push(addOn.split(','));
     })
   }
+  
   const calculateTotalCost = () => {
     let total = 0
     if(isAnnualPricing) {
@@ -27,6 +28,7 @@ const FinishUp = () => {
     }
     return total
   }
+  
   return (
     <>
       <h2 className="pb-2 text-2xl font-semibold text-blue-dark">Finish up</h2>
