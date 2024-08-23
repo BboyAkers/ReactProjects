@@ -12,7 +12,7 @@ export const Stepper = () => {
   };
 
   return (
-    <nav className="md:bg-[url('/bg-sidebar-desktop.svg')] md:h-full md:bg-no-repeat">
+    <nav className="md:bg-[url('/bg-sidebar-desktop.svg')] md:h-full md:bg-no-repeat rounded-lg">
       <ol className="z-50 flex justify-center md:justify-normal mb-8 md:mb-0 space-x-5 md:space-x-0 text-white md:flex-col md:*:h-16 p-5">
         <li className="flex items-center">
           <span className={getLinkClass("/")}>1</span>

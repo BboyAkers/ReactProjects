@@ -12,7 +12,7 @@ export type FormInfo = {
   name: string;
   email: string;
   phone: string;
-  isAnnualPricing: 'true' | 'false';
+  isAnnualPricing: boolean |'true' | 'false';
   planType: string;
   addOns?: string[];
 }
@@ -20,7 +20,7 @@ const defaultFormInfoStates: FormInfo = {
   name: '',
   email: '',
   phone: '',
-  isAnnualPricing: 'false',
+  isAnnualPricing: false,
   planType: '',
   addOns: []
 }
@@ -50,14 +50,14 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    if(!methods.getValues('name')){
-      navigate("/");
-    }
-  }, [methods, navigate]);
+  // useEffect(() => {
+  //   if(!methods.getValues('name')){
+  //     navigate("/");
+  //   }
+  // }, [methods, navigate]);
   
   const onSubmit = (data) => {
-    console.table(data);
+    // console.table(data);
     resolveNextRouteNavigation();
   };
   return (
