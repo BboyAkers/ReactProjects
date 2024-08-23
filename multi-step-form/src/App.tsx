@@ -50,14 +50,15 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   if(!methods.getValues('name')){
-  //     navigate("/");
-  //   }
-  // }, [methods, navigate]);
+  useEffect(() => {
+    if(!methods.getValues('name')){
+      navigate("/");
+    }
+  }, [methods, navigate]);
   
   const onSubmit = (data) => {
-    // console.table(data);
+    // Your data :)
+    console.table(data);
     resolveNextRouteNavigation();
   };
   return (
