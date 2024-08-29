@@ -9,6 +9,7 @@ const HostConnectionCommandLine = ({
 }) => {
   const submitCommandForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // @ts-expect-error This is valid and works
     const command = (event.target as HTMLFormElement).elements[0].value;
      await submitCommand(command);
 
