@@ -32,7 +32,6 @@ const SelectYourPlan = () => {
           <span className="text-sm" id="annual-billing-label">
             <span className="font-medium text-grey-dark">Monthly</span>
           </span>
-          {/* <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" --> */}
           <button 
             {...register("isAnnualPricing")}
             type="button"
@@ -44,7 +43,6 @@ const SelectYourPlan = () => {
             }}
             aria-checked="false"
             aria-labelledby="annual-billing-label">
-            {/* <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" --> */}
             <span aria-hidden="true" className={`inline-block w-5 h-5 transition duration-200 ease-in-out transform ${isAnnualPricing == false || isAnnualPricing == "false" ? 'translate-x-0' : 'translate-x-5'} bg-white rounded-full shadow pointer-events-none ring-0`}></span>
           </button>
           <span className="text-sm" id="annual-billing-label">

@@ -18,7 +18,7 @@ const PlanType = ({ name, icon, title, price }: PlanTypeRadioCard ) => {
         <label 
           htmlFor={name}
           aria-label={name}
-          className="flex p-4 my-2 bg-white border rounded-lg cursor-pointer md:pl-0 md:h-40 md:w-32 border-grey peer-checked:border-purple peer-checked:text-purple peer-checked:bg-grey-light"
+          className="grid grid-cols-2 p-4 my-2 bg-white border rounded-lg cursor-pointer md:grid-cols-1 md:pl-0 md:h-40 md:w-32 border-grey peer-checked:border-purple peer-checked:text-purple peer-checked:bg-grey-light"
         >
           <span className="flex w-full md:flex-col">
             <img src={icon} alt="svg arcade icon" aria-hidden="true" className="max-h-10 max-w10" />
@@ -28,7 +28,6 @@ const PlanType = ({ name, icon, title, price }: PlanTypeRadioCard ) => {
               { (isAnnualPricing == true || isAnnualPricing == "true") && <span className="mt-2 text-xs text-blue-dark">2 months free</span>}
             </span>
           </span>
-          <span className="absolute border-2 rounded-lg pointer-events-none -inset-px" aria-hidden="true"></span>
         </label>
       </div>
     </>

@@ -14,7 +14,7 @@ const FinishUp = () => {
   
   const calculateTotalCost = () => {
     let total = 0
-    if(isAnnualPricing) {
+    if(Boolean(isAnnualPricing)) {
       total = Number(parsedPlanType[1]) * 10
       parsedAddOns.forEach((addOn) => {
         total += Number(addOn[1]) * 10

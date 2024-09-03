@@ -39,7 +39,7 @@ export const Stepper = () => {
           <span className={getLinkClass("/finish")}>4</span>
           <div className="hidden md:inline-block">
             <span className="hidden text-xs text-blue-light md:block">STEP 4</span>
-            <span className="text-sm font-semibold">FINISH</span>
+            <span className="text-sm font-semibold">SUMMARY</span>
           </div>
         </li>
         <li>

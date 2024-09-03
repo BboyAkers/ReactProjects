@@ -7,6 +7,7 @@ import { PickAddOns } from "./components/PickAddOns";
 import { FinishUp } from "./components/FinishUp";
 import { FormCompleted } from "./components/FormCompleted";
 import { Stepper } from "./components/Step";
+import NavigationButtons from "./components/NavigationButtons";
 
 export type FormInfo = {
   name: string;
@@ -65,38 +66,30 @@ function App() {
     <>
       <div className="flex flex-col items-center h-screen bg-white-dark">
         <img src="/bg-sidebar-mobile.svg" alt="bg-sidebar-mobile" className="absolute top-0 w-full md:hidden"/>
-        <div className="z-10 px-4 mt-10">
+        <div className="z-10 h-full px-4 mt-10 md:mt-0 md:flex md:items-center md:justify-center">
           <div className="md:hidden">
             <Stepper />
           </div>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-1 p-6 md:p-4 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey max-w-[940px] md:h-[600px]">
+              <div className="grid grid-cols-1 p-6 md:p-4 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey w-full lg:min-w-[840px] md:h-[600px]">
                 <div className="hidden h-full md:block md:col-span-2">
                   <Stepper />
                 </div>
-                <div className="py-10 md:col-span-4 md:px-14">
-                  <Routes>
-                    <Route path="/" element={<PersonalInfoForm />} />
-                    <Route path="/plan" element={<SelectYourPlan />} />
-                    <Route path="/addons" element={<PickAddOns />} />
-                    <Route path="/finish" element={<FinishUp />} />
-                    <Route path="/completed" element={<FormCompleted />} />
-                  </Routes>
+                <div className="py-10 md:col-span-4 md:px-8 lg:px-14">
+                  <div>
+                    <Routes>
+                      <Route path="/" element={<PersonalInfoForm />} />
+                      <Route path="/plan" element={<SelectYourPlan />} />
+                      <Route path="/addons" element={<PickAddOns />} />
+                      <Route path="/finish" element={<FinishUp />} />
+                      <Route path="/completed" element={<FormCompleted />} />
+                    </Routes>
+                  </div>
                 </div>
               </div>
-              <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white w-full">
-                <div className="flex items-center justify-between h-full px-4">
-                  <button className="text-grey-dark" type="button" disabled={location.pathname === "/"} onClick={() => navigate(-1)}>Go Back</button>
-                  {location.pathname == "/finish" ? (
-                    <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-purple" type="submit">Confirm</button>
-                  ) : (
-                  location.pathname == "/completed" ? (
-                    <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-purple" type="submit">New Form</button>
-                  ) : 
-                    <button className="px-4 py-2 text-white rounded-[4px] text-sm bg-blue-dark" type="submit">Next Step</button>
-                  )} 
-                </div>
+              <div className="absolute inset-x-0 bottom-0 h-[72px] bg-white w-full block px-3">
+                <NavigationButtons navigate={navigate} />
               </div>
             </form>
           </FormProvider>

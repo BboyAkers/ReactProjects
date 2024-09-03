@@ -9,6 +9,8 @@ const AddOnItem = ({ title, subtitle, price }: AddOnItemType) => {
   const { register, watch } = useFormContext();
   const isAnnualPricing  = watch("isAnnualPricing");
   
+  console.log('isAnnualPricing', typeof isAnnualPricing);
+  
   return (
     <label className="flex px-4 py-3 my-4 items-center bg-white border rounded-lg cursor-pointer border-grey has-[:checked]:border-purple has-[:checked]:text-purple has-[:checked]:bg-grey-light">
       <input {...register("addOns")} type="checkbox" value={[title, String(price)]} className="w-5 h-5 rounded accent-purple"/>
@@ -18,7 +20,7 @@ const AddOnItem = ({ title, subtitle, price }: AddOnItemType) => {
           <span className="flex items-center mt-1 text-xs text-grey-dark">{subtitle}</span>
         </span>
         <span className="flex items-center text-xs text-purple">
-        {isAnnualPricing ? `$${price * 10}/yr` : `$${price}/mo`}
+        {Boolean(isAnnualPricing) ? `$${price * 10}/yr` : `$${price}/mo`}
         </span>
       </span>
     </label>
