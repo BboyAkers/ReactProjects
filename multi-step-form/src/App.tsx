@@ -47,6 +47,7 @@ function App() {
           break;
       default:
         navigate("/");
+        methods.reset();
         break;
     }
   }
@@ -72,11 +73,11 @@ function App() {
           </div>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-1 p-6 md:p-4 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey w-full lg:min-w-[840px] md:h-[600px]">
+              <div className="grid grid-cols-1 p-6 md:p-4 bg-white shadow-md md:grid-cols-6 rounded-xl border-grey w-full lg:w-[800px] md:h-[600px]">
                 <div className="hidden h-full md:block md:col-span-2">
                   <Stepper />
                 </div>
-                <div className="py-10 md:col-span-4 md:px-8 lg:px-14">
+                <div className="py-10 md:col-span-4 md:px-8 lg:px-10">
                   <div>
                     <Routes>
                       <Route path="/" element={<PersonalInfoForm />} />
