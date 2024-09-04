@@ -47,8 +47,8 @@ function App() {
           break;
       default:
         navigate("/");
-        methods.reset();
         localStorage.removeItem('formInfo');
+        methods.reset();
         break;
     }
   }
