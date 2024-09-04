@@ -20,7 +20,7 @@ const PersonalInfoForm = () => {
             {...register("name", { required: true })}
             type="text"
             placeholder="e.g. Stephen King"
-            className={`block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-full focus:outline-none ${errors.name ? "focus:border-red focus:ring-red" : "focus:border-purple focus:ring-purple"}`}
+            className={`block h-10 p-4 mb-4 mt-2 text-base border-2 rounded border-gray w-full focus:outline-none ${errors.name ? "focus:border-red focus:ring-red" : "focus:border-purple focus:ring-purple"}`}
           />
         </label>
         <label className="w-full text-xs text-blue-dark">
@@ -32,7 +32,7 @@ const PersonalInfoForm = () => {
             {...register("email", { required: true})}
             type="email"
             placeholder="e.g. stephenking@lorem.com"
-            className={`block h-10 p-4 mb-4 text-base border-2 rounded border-gray w-full focus:outline-none ${errors.email ? "focus:border-red focus:ring-red" : "focus:border-purple focus:ring-purple"}`}
+            className={`block h-10 p-4 mb-4 mt-2 text-base border-2 rounded border-gray w-full focus:outline-none ${errors.email ? "focus:border-red focus:ring-red" : "focus:border-purple focus:ring-purple"}`}
           />
         </label>
         <label className="w-full text-xs text-blue-dark">
@@ -42,7 +42,7 @@ const PersonalInfoForm = () => {
             type="tel"
             ref={maskedInputRef}
             placeholder="e.g. +1 (234) 567-890"
-            className="block w-full h-10 p-4 mb-4 text-base border-2 rounded border-gray focus:outline-none focus:border-purple focus:ring-purple invalid:border-red focus:invalid:border-red"
+            className="block w-full h-10 p-4 mt-2 mb-4 text-base border-2 rounded border-gray focus:outline-none focus:border-purple focus:ring-purple invalid:border-red focus:invalid:border-red"
           />
         </label>
         </div>
