@@ -28,7 +28,7 @@ const defaultFormInfoStates: FormInfo = {
 function App() {
   const navigate = useNavigate();
   const methods = useForm({
-    defaultValues: defaultFormInfoStates
+    defaultValues: localStorage.getItem('formInfo') ? JSON.parse(localStorage.getItem('formInfo') as string) : defaultFormInfoStates
   });
 
   const resolveNextRouteNavigation = () => {
@@ -48,6 +48,7 @@ function App() {
       default:
         navigate("/");
         methods.reset();
+        localStorage.removeItem('formInfo');
         break;
     }
   }
@@ -59,6 +60,7 @@ function App() {
   }, [methods, navigate]);
   
   const onSubmit = (data: FormInfo) => {
+    localStorage.setItem('formInfo', JSON.stringify(data));
     // Your data :)
     console.table(data);
     resolveNextRouteNavigation();

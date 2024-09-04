@@ -20,6 +20,7 @@ const AddOnItem = ({ title, subtitle, price }: AddOnItemType) => {
           <span className="flex items-center mt-1 text-xs text-grey-dark">{subtitle}</span>
         </span>
         <span className="flex items-center text-xs text-purple">
+        {/* eslint-disable-next-line no-extra-boolean-cast */}
         {Boolean(isAnnualPricing) ? `$${price * 10}/yr` : `$${price}/mo`}
         </span>
       </span>
