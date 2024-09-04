@@ -18,6 +18,7 @@ const PlanType = ({ name, icon, title, price }: PlanTypeRadioCard ) => {
         <label 
           htmlFor={name}
           aria-label={name}
+          tabIndex={1}
           className="grid grid-cols-2 p-4 my-2 bg-white border rounded-lg cursor-pointer md:grid-cols-1 md:pl-0 md:h-40 md:w-32 border-grey peer-checked:border-purple peer-checked:text-purple peer-checked:bg-grey-light"
         >
           <span className="flex w-full md:flex-col">

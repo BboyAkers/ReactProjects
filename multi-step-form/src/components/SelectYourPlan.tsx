@@ -30,7 +30,7 @@ const SelectYourPlan = () => {
       </fieldset>
       <div className="flex items-center justify-center py-4 rounded-lg bg-grey-light">
           <span className="text-sm" id="annual-billing-label">
-            <span className="font-medium text-grey-dark">Monthly</span>
+            <span className={`font-medium ${isAnnualPricing == false || isAnnualPricing == "false" ? 'text-blue-dark' : 'text-grey-dark'}`}>Monthly</span>
           </span>
           <button 
             {...register("isAnnualPricing")}
@@ -46,7 +46,7 @@ const SelectYourPlan = () => {
             <span aria-hidden="true" className={`inline-block w-5 h-5 transition duration-200 ease-in-out transform ${isAnnualPricing == false || isAnnualPricing == "false" ? 'translate-x-0' : 'translate-x-5'} bg-white rounded-full shadow pointer-events-none ring-0`}></span>
           </button>
           <span className="text-sm" id="annual-billing-label">
-            <span className="font-medium text-grey-dark">Yearly</span>
+            <span className={`font-medium ${isAnnualPricing == true || isAnnualPricing == "true" ? 'text-blue-dark' : 'text-grey-dark'} `}>Yearly</span>
           </span>
         </div>
     </>
