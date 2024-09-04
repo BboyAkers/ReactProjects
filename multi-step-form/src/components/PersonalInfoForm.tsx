@@ -1,7 +1,10 @@
 import { useFormContext } from "react-hook-form";
+import { useMaskito } from '@maskito/react';
+import options from "../utils/mask";
 
 const PersonalInfoForm = () => {
   const { register, formState: { errors } } = useFormContext();
+  const maskedInputRef = useMaskito({options});
 
   return (
     <>
@@ -37,7 +40,8 @@ const PersonalInfoForm = () => {
           <input
             {...register("phone")}
             type="tel"
-            placeholder="e.g. +1 234 567 890"
+            ref={maskedInputRef}
+            placeholder="e.g. +1 (234) 567-890"
             className="block w-full h-10 p-4 mb-4 text-base border-2 rounded border-gray focus:outline-none focus:border-purple focus:ring-purple invalid:border-red focus:invalid:border-red"
           />
         </label>

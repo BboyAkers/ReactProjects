@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-  "react": "^18.3.1",
+    "@maskito/react": "^3.0.1",
+    "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.0",
     "react-router-dom": "^6.24.1"
