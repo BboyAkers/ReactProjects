@@ -21,7 +21,7 @@
     "axios": "^0.28.0",
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^4.17.21",
-    "react": "^15.0.0",
+    "react": "^16.5.0",
     "react-dom": "^0.14.3",
     "react-google-maps": "^4.7.1",
     "react-redux": "^4.0.0",
