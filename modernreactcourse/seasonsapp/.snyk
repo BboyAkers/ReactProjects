@@ -721,3 +721,30 @@ patch:
         patched: '2024-04-05T03:31:02.091Z'
         id: SNYK-JS-LODASH-567746
         path: react-scripts > webpack-dev-server > portfinder > async > lodash
+    - '@testing-library/jest-dom > lodash':
+        patched: '2025-07-03T14:51:24.646Z'
+        id: SNYK-JS-LODASH-567746
+        path: '@testing-library/jest-dom > lodash'
+    - react-scripts > babel-jest > @jest/transform > @babel/core > lodash:
+        patched: '2025-07-03T14:51:24.646Z'
+        id: SNYK-JS-LODASH-567746
+        path: react-scripts > babel-jest > @jest/transform > @babel/core > lodash
+    - react-scripts > @svgr/webpack > @babel/preset-env > @babel/preset-modules > @babel/types > lodash:
+        patched: '2025-07-03T14:51:24.646Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > @svgr/webpack > @babel/preset-env >
+          @babel/preset-modules > @babel/types > lodash
+    - react-scripts > babel-jest > @jest/transform > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2025-07-03T14:51:24.646Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > babel-jest > @jest/transform > @babel/core >
+          @babel/helper-module-transforms > lodash
+    - react-scripts > babel-jest > @jest/transform > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2025-07-03T14:51:24.646Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > babel-jest > @jest/transform > @babel/core >
+          @babel/helper-module-transforms > @babel/helper-replace-supers >
+          @babel/traverse > lodash
