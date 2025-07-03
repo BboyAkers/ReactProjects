@@ -2206,7 +2206,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snyk/protect@latest":
+"@snyk/protect@^1.1290.0":
   version "1.1290.0"
   resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1290.0.tgz#af54482a64b529bc55b075ebd0c57437e53504de"
   integrity sha512-Lw96LRKhnKDLobNWUl4OWrKIge3iJmucE63PDnZSmIS0VzGXK+w6cU4rSf/dbzw9M56Y6T5GGexsiu8jsF3XRg==
