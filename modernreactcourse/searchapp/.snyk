@@ -47,3 +47,100 @@ patch:
           react-scripts > @typescript-eslint/eslint-plugin >
           @typescript-eslint/experimental-utils >
           @typescript-eslint/typescript-estree > lodash
+    - react-scripts > jest > @jest/core > jest-runner > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > @jest/core > jest-runner >
+          jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > @jest/core > jest-config > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > @jest/core > jest-config >
+          jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom
+          > jsdom > whatwg-url > lodash
+    - react-scripts > jest > @jest/core > jest-runner > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > @jest/core > jest-runner >
+          jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > @jest/core > jest-config > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > @jest/core > jest-config >
+          jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom
+          > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > @jest/core > jest-config > jest-runner > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > @jest/core > jest-config > jest-runner >
+          jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > jest-config > jest-runner > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > jest-config > jest-runner >
+          jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > @jest/core > jest-runner >
+          jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > @jest/core > jest-config >
+          jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > @jest/core > jest-config > jest-runner > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > @jest/core > jest-config > jest-runner >
+          jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > jest-config > jest-runner > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > jest-config > jest-runner >
+          jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > @jest/core > jest-runner >
+          jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > @jest/core > jest-config >
+          jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-runner > jest-environment-jsdom > jsdom > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > @jest/core > jest-config >
+          jest-runner > jest-environment-jsdom > jsdom > whatwg-url > lodash
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-runner > jest-environment-jsdom > jsdom > data-urls > whatwg-url > lodash:
+        patched: '2025-07-03T14:49:36.288Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          react-scripts > jest > jest-cli > @jest/core > jest-config >
+          jest-runner > jest-environment-jsdom > jsdom > data-urls > whatwg-url
+          > lodash
