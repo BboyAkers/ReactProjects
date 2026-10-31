@@ -2206,10 +2206,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snyk/protect@^1.1290.0":
-  version "1.1290.0"
-  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1290.0.tgz#af54482a64b529bc55b075ebd0c57437e53504de"
-  integrity sha512-Lw96LRKhnKDLobNWUl4OWrKIge3iJmucE63PDnZSmIS0VzGXK+w6cU4rSf/dbzw9M56Y6T5GGexsiu8jsF3XRg==
+"@snyk/protect@latest":
+  version "1.1303.2"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1303.2.tgz#8d6341b780c96e19de5833220a472b35f95dba94"
+  integrity sha512-N1nhUKHd7Z+RA58DUR2ZZBBpd3CyI4Nylafml+CFszgq8LwZ+8LA5+Sk7jfDCrzmmDkBk5UBqRRsBUmB13UOAQ==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
@@ -8032,20 +8032,10 @@ picocolors@^1.0.0:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
-picomatch@^2.0.4:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.1.tgz#21bac888b6ed8601f831ce7816e335bc779f0a4a"
-  integrity sha512-ISBaA8xQNmwELC7eOjqFKMESB2VIqt4PPDD0nsS95b/9dZXvVKOlz9keMSnoGGKcOHXfTvDD6WMaRoSc9UuhRA==
-
-picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
-  integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
-
-picomatch@^2.2.3, picomatch@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
-  integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.2.3, picomatch@^2.3.1:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.2.tgz#5a942915e26b372dc0f0e6753149a16e6b1c5601"
+  integrity sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==
 
 pify@^2.3.0:
   version "2.3.0"
